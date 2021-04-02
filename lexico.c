@@ -33,14 +33,31 @@ int acao_lexica (int token)
 		 * no Flex. Os campos dessa struct sao definidos na declaracao 
 		 * %union, do Bison. */
 		 
-		case T_BOOL: 	yylval.tipo = tipo_obter ("bool"); 	break;
-		case T_CHAR:	yylval.tipo = tipo_obter ("char"); 	break;
-		case T_FLOAT:	yylval.tipo = tipo_obter ("float"); 	break;
-		case T_INT:		yylval.tipo = tipo_obter ("int"); break;
+		case T_BOOL: 	
+			cte_bool = (strcmp ("false", yytext) == 0 ? false : true); 
+			yylval.tipo = tipo_obter ("bool"); 	
+			break;
+		
+		case T_CHAR:	
+			cte_char = yytext[0];
+			yylval.tipo = tipo_obter ("char"); 	
+			break;
+		
+		case T_FLOAT:	
+			cte_float = atof (yytext);
+			yylval.tipo = tipo_obter ("float");
+			break;
+		
+		case T_INT:		
+			cte_int = atoi (yytext); 
+			yylval.tipo = tipo_obter ("int"); 
+			break;
 		
 		/* Nomes de tipo disponibilizam seus tipos paar o analisador
 		 * sintatico. */
-		case T_TIPO:	yylval.tipo = tipo_obter (yytext); 	break;			
+		case T_TIPO:	
+			yylval.tipo = tipo_obter (yytext); 	
+			break;			
 		
 		/* Identificadores sao inseridos na tabela de simbolos junto com
 		 * suas informacoes de linha e coluna. Eles tambem sao 

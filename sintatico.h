@@ -1,8 +1,9 @@
+# include "bytecode.h"
 # include <stdio.h>
+# include <string.h>
 # include "tabsimb.h"
 # include "tabsimb-defs.h"
 # include "trabalho.tab.h"
-# include "bytecode.h"
 
 /* ================================================================= */
 /* INFORMACOES BASICAS DO ARQUIVO. */
@@ -28,6 +29,16 @@ extern int coluna;
 extern tabsimb_t *tab;	/* Tabela de simbolos. */
 
 /* Variaveis globais do analisador sintatico. */
+
+/* As quatro variaveis servem para passar o valor de uma constante
+ * recem reconhecida no analisador lexico para o sintatico. */
+bool cte_bool;			/* Um valor booleano. E */
+char cte_char;			/* Um caractere. */
+float cte_float;		/* Um numero de ponto flutuante. */
+int cte_int;			/* Um numero inteiro. */
+
+char *id_func_chamada;	/* Identificador da ultima funcao chamada. */
+
 lista_t *inics;			/* Armazena os identificadores de uma lista de 
 						/* definicao de variaveis (int a, b, c;). */
 lista_t *args;			/* Armazena os tipos dos argumentos de uma

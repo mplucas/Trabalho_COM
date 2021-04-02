@@ -26,6 +26,7 @@ void comp_inicializar (void)
     linha = coluna = 1;
     inics = NULL;
     args = NULL;
+    id_func_chamada = NULL;
     
     /* Criacao da tabela de simbolos. */
     tab_criar();
@@ -121,6 +122,9 @@ void yyerror (const char* mensagem)
 
 tipo_t *chamada_funcao (char *id)
 {
+	/* Identificando a ultima funcao chamada. */
+	id_func_chamada = id;
+	
 	/* A lista de argumentos e, na verdade, uma lista de tipos, uma vez
 	 * que os tipos e a quantidade dos argumentos e o que importa para 
 	 * a analise semantica associada as chamadas de funcao. */

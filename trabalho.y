@@ -253,6 +253,7 @@ expr
 
 expr_atrib
 	:	T_ID T_ATRIB expr_atrib	{
+			
 			puts ("expr_atrib1");
 			$$ = expr_atrib ($1, $3);
 		}
@@ -352,15 +353,18 @@ expr_simpl
 		}
 	|	T_BOOL {
 			puts ("expr_simpl2");
-			$$ = yylval.tipo;
+			/* cte_bool */
+			// $$ = yylval.tipo;
 		}
 	|	T_CHAR {
 			puts ("expr_simpl3");
-			$$ = yylval.tipo;
+			/* cte_char */			
+			// $$ = yylval.tipo;
 		}
 	|	T_FLOAT  {
 			puts ("expr_simpl4");
-			$$ = yylval.tipo; 
+			/* cte_float */
+			// $$ = yylval.tipo; 
 		}
 	|	T_ID {
 			puts ("expr_simpl5");
@@ -368,16 +372,17 @@ expr_simpl
 		}
 	|	T_INT {
 			puts ("expr_simpl6");
-			$$ = yylval.tipo;
+			/* cte_int */
+			// $$ = yylval.tipo;
 		}
 	|	chamada_funcao {
-            if(strcmp($1, "print_int")){
-                printHeadStack();
+            if (strcmp (id_func_chamada, "print_int") /* == 0?? */){
+                printHeadStack();                
             }
         }
 	;
 
-chamada_funcao	
+chamada_funcao
 	:	T_ID T_APAREN lista_arg T_FPAREN {
 			puts ("chamada_funcao1");
 			$$ = chamada_funcao ($1);

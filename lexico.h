@@ -21,6 +21,11 @@ extern char* yytext;	/* Ultimo token reconhecido. */
 int linha;				/* Linha do ultimo token reconhecido. */
 int coluna;				/* Coluna do ultimo token reconhecido. */
 
+extern bool cte_bool;	/* Um valor booleano. */
+extern char cte_char;	/* Um caractere. */
+extern float cte_float;	/* Um numero de ponto flutuante. */
+extern int cte_int;		/* Um numero inteiro. */
+
 extern tabsimb_t *tab;	/* Tabela de simbolos (definida no arquivo
 						 * tabsimb.c). */
 
