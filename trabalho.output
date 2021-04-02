@@ -1,12 +1,12 @@
-Terminais sem uso na gramática
+Terminals unused in grammar
 
-   T_ASPAS_SIMPL
-   T_BRANCO
-   T_ERRO
-   T_NEWLINE
+    T_ASPAS_SIMPL
+    T_BRANCO
+    T_ERRO
+    T_NEWLINE
 
 
-Gramática
+Grammar
 
     0 $accept: raiz $end
 
@@ -145,527 +145,562 @@ Gramática
    95                | T_NAO oper_unario
 
 
-Terminais, com as regras onde eles aparecem
+Terminals, with rules where they appear
 
-$end (0) 0
-error (256)
-T_ACOLCH (258) 28 29
-T_APAREN (259) 24 25 26 27 32 33 37 38 39 40 41 42 43 44 45 46 80 87
-    88
-T_ATRIB (260) 23 55
-T_ASPAS_SIMPL (261)
-T_BRANCO (262)
-T_BREAK (263) 48
-T_BOOL (264) 81
-T_CHAR (265) 82
-T_FLOAT (266) 83
-T_INT (267) 85
-T_CONTINUE (268) 49
-T_DIFER (269) 64
-T_DIV (270) 75
-T_DO (271) 46
-T_E (272) 59
-T_ELSE_FALSO (273)
-T_ELSE (274) 33
-T_ERRO (275)
-T_FCOLCH (276) 28 29
-T_FOR (277) 37 38 39 40 41 42 43 44
-T_FPAREN (278) 24 25 26 27 32 33 37 38 39 40 41 42 43 44 45 46 80 87
-    88
-T_ID (279) 9 22 23 24 25 26 27 55 84 87 88
-T_IF (280) 32 33
-T_IGUAL (281) 63
-T_MAIOR (282) 67
-T_MAIOR_IGUAL (283) 69
-T_MAIS (284) 71 91
-T_MENOR (285) 66
-T_MENOR_IGUAL (286) 68
-T_MENOS (287) 72 92
-T_NAO (288) 94 95
-T_NEWLINE (289)
-T_OU (290) 57
-T_OU_EXCL (291) 61
-T_PEV (292) 16 37 38 39 40 41 42 43 44 46 47 53
-T_RESTO (293) 76
-T_RETURN (294) 51 52
-T_TIPO (295) 9 19 24 26
-T_VEZES (296) 74
-T_VIRG (297) 8 20 89
-T_VOID (298) 25 26 27
-T_WHILE (299) 45 46
+    $end (0) 0
+    error (256)
+    T_ACOLCH (258) 28 29
+    T_APAREN (259) 24 25 26 27 32 33 37 38 39 40 41 42 43 44 45 46 80 87 88
+    T_ATRIB (260) 23 55
+    T_ASPAS_SIMPL (261)
+    T_BRANCO (262)
+    T_BREAK (263) 48
+    T_BOOL <tipo> (264) 81
+    T_CHAR <tipo> (265) 82
+    T_FLOAT <tipo> (266) 83
+    T_INT <tipo> (267) 85
+    T_CONTINUE (268) 49
+    T_DIFER <token> (269) 64
+    T_DIV <token> (270) 75
+    T_DO (271) 46
+    T_E <token> (272) 59
+    T_ELSE_FALSO (273)
+    T_ELSE (274) 33
+    T_ERRO (275)
+    T_FCOLCH (276) 28 29
+    T_FOR (277) 37 38 39 40 41 42 43 44
+    T_FPAREN (278) 24 25 26 27 32 33 37 38 39 40 41 42 43 44 45 46 80 87 88
+    T_ID <id> (279) 9 22 23 24 25 26 27 55 84 87 88
+    T_IF (280) 32 33
+    T_IGUAL <token> (281) 63
+    T_MAIOR <token> (282) 67
+    T_MAIOR_IGUAL <token> (283) 69
+    T_MAIS <token> (284) 71 91
+    T_MENOR <token> (285) 66
+    T_MENOR_IGUAL <token> (286) 68
+    T_MENOS <token> (287) 72 92
+    T_NAO <token> (288) 94 95
+    T_NEWLINE (289)
+    T_OU <token> (290) 57
+    T_OU_EXCL <token> (291) 61
+    T_PEV (292) 16 37 38 39 40 41 42 43 44 46 47 53
+    T_RESTO <token> (293) 76
+    T_RETURN (294) 51 52
+    T_TIPO <tipo> (295) 9 19 24 26
+    T_VEZES <token> (296) 74
+    T_VIRG (297) 8 20 89
+    T_VOID (298) 25 26 27
+    T_WHILE (299) 45 46
 
 
-Não terminais com as regras onde eles aparecem
+Nonterminals, with rules where they appear
 
-$accept (45)
-    à esquerda: 0
-raiz (46)
-    à esquerda: 1, à direita: 0
-unid_traducao (47)
-    à esquerda: 2 3, à direita: 1 2
-decl_externa (48)
-    à esquerda: 4 5, à direita: 2 3
-def_funcao (49)
-    à esquerda: 6, à direita: 5
-lista_param (50)
-    à esquerda: 7 8, à direita: 8 24 25
-param (51)
-    à esquerda: 9, à direita: 7 8
-instrucao (52)
-    à esquerda: 10 11 12 13 14 15, à direita: 30 31 32 33
-instr_decl (53)
-    à esquerda: 16, à direita: 4 10
-decl (54)
-    à esquerda: 17 18, à direita: 16
-decl_var (55)
-    à esquerda: 19, à direita: 17
-lista_inic (56)
-    à esquerda: 20 21, à direita: 19 20
-inic (57)
-    à esquerda: 22 23, à direita: 20 21
-decl_funcao (58)
-    à esquerda: 24 25 26 27, à direita: 6 18
-cmd_composto (59)
-    à esquerda: 28 29, à direita: 6 11 37 38 39 40 41 42 43 44 45
-    46
-lista_instr (60)
-    à esquerda: 30 31, à direita: 28 30
-cmd_selecao (61)
-    à esquerda: 32 33, à direita: 12
-cmd_repeticao (62)
-    à esquerda: 34 35 36, à direita: 13
-cmd_for (63)
-    à esquerda: 37 38 39 40 41 42 43 44, à direita: 34
-cmd_while (64)
-    à esquerda: 45, à direita: 35
-cmd_do_while (65)
-    à esquerda: 46, à direita: 36
-cmd_desvio (66)
-    à esquerda: 47, à direita: 14
-desvio (67)
-    à esquerda: 48 49 50, à direita: 47
-retorno (68)
-    à esquerda: 51 52, à direita: 50
-cmd_expr (69)
-    à esquerda: 53, à direita: 15
-expr (70)
-    à esquerda: 54, à direita: 23 32 33 37 38 39 40 41 42 43 45 46
-    52 53 80 89 90
-expr_atrib (71)
-    à esquerda: 55 56, à direita: 54 55
-expr_ou (72)
-    à esquerda: 57 58, à direita: 56 57
-expr_e (73)
-    à esquerda: 59 60, à direita: 57 58 59
-expr_ou_excl (74)
-    à esquerda: 61 62, à direita: 59 60 61
-expr_igual (75)
-    à esquerda: 63 64 65, à direita: 61 62 63 64
-expr_relac (76)
-    à esquerda: 66 67 68 69 70, à direita: 63 64 65 66 67 68 69
-expr_soma (77)
-    à esquerda: 71 72 73, à direita: 66 67 68 69 70 71 72
-expr_mult (78)
-    à esquerda: 74 75 76 77, à direita: 71 72 73 74 75 76
-expr_unaria (79)
-    à esquerda: 78 79, à direita: 77
-expr_simpl (80)
-    à esquerda: 80 81 82 83 84 85 86, à direita: 74 75 76 78 79
-chamada_funcao (81)
-    à esquerda: 87 88, à direita: 86
-lista_arg (82)
-    à esquerda: 89 90, à direita: 87 89
-oper_unario (83)
-    à esquerda: 91 92 93, à direita: 78 95
-oper_unario_log (84)
-    à esquerda: 94 95, à direita: 93
+    $accept (45)
+        on left: 0
+    raiz (46)
+        on left: 1
+        on right: 0
+    unid_traducao (47)
+        on left: 2 3
+        on right: 1 2
+    decl_externa (48)
+        on left: 4 5
+        on right: 2 3
+    def_funcao (49)
+        on left: 6
+        on right: 5
+    lista_param (50)
+        on left: 7 8
+        on right: 8 24 25
+    param (51)
+        on left: 9
+        on right: 7 8
+    instrucao (52)
+        on left: 10 11 12 13 14 15
+        on right: 30 31 32 33
+    instr_decl (53)
+        on left: 16
+        on right: 4 10
+    decl (54)
+        on left: 17 18
+        on right: 16
+    decl_var (55)
+        on left: 19
+        on right: 17
+    lista_inic (56)
+        on left: 20 21
+        on right: 19 20
+    inic <id> (57)
+        on left: 22 23
+        on right: 20 21
+    decl_funcao (58)
+        on left: 24 25 26 27
+        on right: 6 18
+    cmd_composto (59)
+        on left: 28 29
+        on right: 6 11 37 38 39 40 41 42 43 44 45 46
+    lista_instr (60)
+        on left: 30 31
+        on right: 28 30
+    cmd_selecao (61)
+        on left: 32 33
+        on right: 12
+    cmd_repeticao (62)
+        on left: 34 35 36
+        on right: 13
+    cmd_for (63)
+        on left: 37 38 39 40 41 42 43 44
+        on right: 34
+    cmd_while (64)
+        on left: 45
+        on right: 35
+    cmd_do_while (65)
+        on left: 46
+        on right: 36
+    cmd_desvio (66)
+        on left: 47
+        on right: 14
+    desvio (67)
+        on left: 48 49 50
+        on right: 47
+    retorno (68)
+        on left: 51 52
+        on right: 50
+    cmd_expr (69)
+        on left: 53
+        on right: 15
+    expr <tipo> (70)
+        on left: 54
+        on right: 23 32 33 37 38 39 40 41 42 43 45 46 52 53 80 89 90
+    expr_atrib <tipo> (71)
+        on left: 55 56
+        on right: 54 55
+    expr_ou <tipo> (72)
+        on left: 57 58
+        on right: 56 57
+    expr_e <tipo> (73)
+        on left: 59 60
+        on right: 57 58 59
+    expr_ou_excl <tipo> (74)
+        on left: 61 62
+        on right: 59 60 61
+    expr_igual <tipo> (75)
+        on left: 63 64 65
+        on right: 61 62 63 64
+    expr_relac <tipo> (76)
+        on left: 66 67 68 69 70
+        on right: 63 64 65 66 67 68 69
+    expr_soma <tipo> (77)
+        on left: 71 72 73
+        on right: 66 67 68 69 70 71 72
+    expr_mult <tipo> (78)
+        on left: 74 75 76 77
+        on right: 71 72 73 74 75 76
+    expr_unaria <tipo> (79)
+        on left: 78 79
+        on right: 77
+    expr_simpl <tipo> (80)
+        on left: 80 81 82 83 84 85 86
+        on right: 74 75 76 78 79
+    chamada_funcao <tipo> (81)
+        on left: 87 88
+        on right: 86
+    lista_arg (82)
+        on left: 89 90
+        on right: 87 89
+    oper_unario <token> (83)
+        on left: 91 92 93
+        on right: 78 95
+    oper_unario_log <token> (84)
+        on left: 94 95
+        on right: 93
 
 
-Estado 0
+State 0
 
     0 $accept: . raiz $end
 
-    T_TIPO  deslocar, e ir ao estado 1
-    T_VOID  deslocar, e ir ao estado 2
+    T_TIPO  shift, and go to state 1
+    T_VOID  shift, and go to state 2
 
-    raiz           ir ao estado 3
-    unid_traducao  ir ao estado 4
-    decl_externa   ir ao estado 5
-    def_funcao     ir ao estado 6
-    instr_decl     ir ao estado 7
-    decl           ir ao estado 8
-    decl_var       ir ao estado 9
-    decl_funcao    ir ao estado 10
+    raiz           go to state 3
+    unid_traducao  go to state 4
+    decl_externa   go to state 5
+    def_funcao     go to state 6
+    instr_decl     go to state 7
+    decl           go to state 8
+    decl_var       go to state 9
+    decl_funcao    go to state 10
 
 
-Estado 1
+State 1
 
    19 decl_var: T_TIPO . lista_inic
    24 decl_funcao: T_TIPO . T_ID T_APAREN lista_param T_FPAREN
    26            | T_TIPO . T_ID T_APAREN T_VOID T_FPAREN
 
-    T_ID  deslocar, e ir ao estado 11
+    T_ID  shift, and go to state 11
 
-    lista_inic  ir ao estado 12
-    inic        ir ao estado 13
+    lista_inic  go to state 12
+    inic        go to state 13
 
 
-Estado 2
+State 2
 
    25 decl_funcao: T_VOID . T_ID T_APAREN lista_param T_FPAREN
    27            | T_VOID . T_ID T_APAREN T_VOID T_FPAREN
 
-    T_ID  deslocar, e ir ao estado 14
+    T_ID  shift, and go to state 14
 
 
-Estado 3
+State 3
 
     0 $accept: raiz . $end
 
-    $end  deslocar, e ir ao estado 15
+    $end  shift, and go to state 15
 
 
-Estado 4
+State 4
 
     1 raiz: unid_traducao .
     2 unid_traducao: unid_traducao . decl_externa
 
-    T_TIPO  deslocar, e ir ao estado 1
-    T_VOID  deslocar, e ir ao estado 2
+    T_TIPO  shift, and go to state 1
+    T_VOID  shift, and go to state 2
 
-    $padrão  reduzir usando a regra 1 (raiz)
+    $default  reduce using rule 1 (raiz)
 
-    decl_externa  ir ao estado 16
-    def_funcao    ir ao estado 6
-    instr_decl    ir ao estado 7
-    decl          ir ao estado 8
-    decl_var      ir ao estado 9
-    decl_funcao   ir ao estado 10
+    decl_externa  go to state 16
+    def_funcao    go to state 6
+    instr_decl    go to state 7
+    decl          go to state 8
+    decl_var      go to state 9
+    decl_funcao   go to state 10
 
 
-Estado 5
+State 5
 
     3 unid_traducao: decl_externa .
 
-    $padrão  reduzir usando a regra 3 (unid_traducao)
+    $default  reduce using rule 3 (unid_traducao)
 
 
-Estado 6
+State 6
 
     5 decl_externa: def_funcao .
 
-    $padrão  reduzir usando a regra 5 (decl_externa)
+    $default  reduce using rule 5 (decl_externa)
 
 
-Estado 7
+State 7
 
     4 decl_externa: instr_decl .
 
-    $padrão  reduzir usando a regra 4 (decl_externa)
+    $default  reduce using rule 4 (decl_externa)
 
 
-Estado 8
+State 8
 
    16 instr_decl: decl . T_PEV
 
-    T_PEV  deslocar, e ir ao estado 17
+    T_PEV  shift, and go to state 17
 
 
-Estado 9
+State 9
 
    17 decl: decl_var .
 
-    $padrão  reduzir usando a regra 17 (decl)
+    $default  reduce using rule 17 (decl)
 
 
-Estado 10
+State 10
 
     6 def_funcao: decl_funcao . cmd_composto
    18 decl: decl_funcao .
 
-    T_ACOLCH  deslocar, e ir ao estado 18
+    T_ACOLCH  shift, and go to state 18
 
-    $padrão  reduzir usando a regra 18 (decl)
+    $default  reduce using rule 18 (decl)
 
-    cmd_composto  ir ao estado 19
+    cmd_composto  go to state 19
 
 
-Estado 11
+State 11
 
    22 inic: T_ID .
    23     | T_ID . T_ATRIB expr
    24 decl_funcao: T_TIPO T_ID . T_APAREN lista_param T_FPAREN
    26            | T_TIPO T_ID . T_APAREN T_VOID T_FPAREN
 
-    T_APAREN  deslocar, e ir ao estado 20
-    T_ATRIB   deslocar, e ir ao estado 21
+    T_APAREN  shift, and go to state 20
+    T_ATRIB   shift, and go to state 21
 
-    $padrão  reduzir usando a regra 22 (inic)
+    $default  reduce using rule 22 (inic)
 
 
-Estado 12
+State 12
 
    19 decl_var: T_TIPO lista_inic .
    20 lista_inic: lista_inic . T_VIRG inic
 
-    T_VIRG  deslocar, e ir ao estado 22
+    T_VIRG  shift, and go to state 22
 
-    $padrão  reduzir usando a regra 19 (decl_var)
+    $default  reduce using rule 19 (decl_var)
 
 
-Estado 13
+State 13
 
    21 lista_inic: inic .
 
-    $padrão  reduzir usando a regra 21 (lista_inic)
+    $default  reduce using rule 21 (lista_inic)
 
 
-Estado 14
+State 14
 
    25 decl_funcao: T_VOID T_ID . T_APAREN lista_param T_FPAREN
    27            | T_VOID T_ID . T_APAREN T_VOID T_FPAREN
 
-    T_APAREN  deslocar, e ir ao estado 23
+    T_APAREN  shift, and go to state 23
 
 
-Estado 15
+State 15
 
     0 $accept: raiz $end .
 
-    $padrão  aceitar
+    $default  accept
 
 
-Estado 16
+State 16
 
     2 unid_traducao: unid_traducao decl_externa .
 
-    $padrão  reduzir usando a regra 2 (unid_traducao)
+    $default  reduce using rule 2 (unid_traducao)
 
 
-Estado 17
+State 17
 
    16 instr_decl: decl T_PEV .
 
-    $padrão  reduzir usando a regra 16 (instr_decl)
+    $default  reduce using rule 16 (instr_decl)
 
 
-Estado 18
+State 18
 
    28 cmd_composto: T_ACOLCH . lista_instr T_FCOLCH
    29             | T_ACOLCH . T_FCOLCH
 
-    T_ACOLCH    deslocar, e ir ao estado 18
-    T_APAREN    deslocar, e ir ao estado 24
-    T_BREAK     deslocar, e ir ao estado 25
-    T_BOOL      deslocar, e ir ao estado 26
-    T_CHAR      deslocar, e ir ao estado 27
-    T_FLOAT     deslocar, e ir ao estado 28
-    T_INT       deslocar, e ir ao estado 29
-    T_CONTINUE  deslocar, e ir ao estado 30
-    T_DO        deslocar, e ir ao estado 31
-    T_FCOLCH    deslocar, e ir ao estado 32
-    T_FOR       deslocar, e ir ao estado 33
-    T_ID        deslocar, e ir ao estado 34
-    T_IF        deslocar, e ir ao estado 35
-    T_MAIS      deslocar, e ir ao estado 36
-    T_MENOS     deslocar, e ir ao estado 37
-    T_NAO       deslocar, e ir ao estado 38
-    T_RETURN    deslocar, e ir ao estado 39
-    T_TIPO      deslocar, e ir ao estado 1
-    T_VOID      deslocar, e ir ao estado 2
-    T_WHILE     deslocar, e ir ao estado 40
+    T_ACOLCH    shift, and go to state 18
+    T_APAREN    shift, and go to state 24
+    T_BREAK     shift, and go to state 25
+    T_BOOL      shift, and go to state 26
+    T_CHAR      shift, and go to state 27
+    T_FLOAT     shift, and go to state 28
+    T_INT       shift, and go to state 29
+    T_CONTINUE  shift, and go to state 30
+    T_DO        shift, and go to state 31
+    T_FCOLCH    shift, and go to state 32
+    T_FOR       shift, and go to state 33
+    T_ID        shift, and go to state 34
+    T_IF        shift, and go to state 35
+    T_MAIS      shift, and go to state 36
+    T_MENOS     shift, and go to state 37
+    T_NAO       shift, and go to state 38
+    T_RETURN    shift, and go to state 39
+    T_TIPO      shift, and go to state 1
+    T_VOID      shift, and go to state 2
+    T_WHILE     shift, and go to state 40
 
-    instrucao        ir ao estado 41
-    instr_decl       ir ao estado 42
-    decl             ir ao estado 8
-    decl_var         ir ao estado 9
-    decl_funcao      ir ao estado 43
-    cmd_composto     ir ao estado 44
-    lista_instr      ir ao estado 45
-    cmd_selecao      ir ao estado 46
-    cmd_repeticao    ir ao estado 47
-    cmd_for          ir ao estado 48
-    cmd_while        ir ao estado 49
-    cmd_do_while     ir ao estado 50
-    cmd_desvio       ir ao estado 51
-    desvio           ir ao estado 52
-    retorno          ir ao estado 53
-    cmd_expr         ir ao estado 54
-    expr             ir ao estado 55
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    instrucao        go to state 41
+    instr_decl       go to state 42
+    decl             go to state 8
+    decl_var         go to state 9
+    decl_funcao      go to state 43
+    cmd_composto     go to state 44
+    lista_instr      go to state 45
+    cmd_selecao      go to state 46
+    cmd_repeticao    go to state 47
+    cmd_for          go to state 48
+    cmd_while        go to state 49
+    cmd_do_while     go to state 50
+    cmd_desvio       go to state 51
+    desvio           go to state 52
+    retorno          go to state 53
+    cmd_expr         go to state 54
+    expr             go to state 55
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 19
+State 19
 
     6 def_funcao: decl_funcao cmd_composto .
 
-    $padrão  reduzir usando a regra 6 (def_funcao)
+    $default  reduce using rule 6 (def_funcao)
 
 
-Estado 20
+State 20
 
    24 decl_funcao: T_TIPO T_ID T_APAREN . lista_param T_FPAREN
    26            | T_TIPO T_ID T_APAREN . T_VOID T_FPAREN
 
-    T_TIPO  deslocar, e ir ao estado 69
-    T_VOID  deslocar, e ir ao estado 70
+    T_TIPO  shift, and go to state 69
+    T_VOID  shift, and go to state 70
 
-    lista_param  ir ao estado 71
-    param        ir ao estado 72
+    lista_param  go to state 71
+    param        go to state 72
 
 
-Estado 21
+State 21
 
    23 inic: T_ID T_ATRIB . expr
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr             ir ao estado 73
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 73
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 22
+State 22
 
    20 lista_inic: lista_inic T_VIRG . inic
 
-    T_ID  deslocar, e ir ao estado 74
+    T_ID  shift, and go to state 74
 
-    inic  ir ao estado 75
+    inic  go to state 75
 
 
-Estado 23
+State 23
 
    25 decl_funcao: T_VOID T_ID T_APAREN . lista_param T_FPAREN
    27            | T_VOID T_ID T_APAREN . T_VOID T_FPAREN
 
-    T_TIPO  deslocar, e ir ao estado 69
-    T_VOID  deslocar, e ir ao estado 76
+    T_TIPO  shift, and go to state 69
+    T_VOID  shift, and go to state 76
 
-    lista_param  ir ao estado 77
-    param        ir ao estado 72
+    lista_param  go to state 77
+    param        go to state 72
 
 
-Estado 24
+State 24
 
    80 expr_simpl: T_APAREN . expr T_FPAREN
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr             ir ao estado 78
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 78
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 25
+State 25
 
    48 desvio: T_BREAK .
 
-    $padrão  reduzir usando a regra 48 (desvio)
+    $default  reduce using rule 48 (desvio)
 
 
-Estado 26
+State 26
 
    81 expr_simpl: T_BOOL .
 
-    $padrão  reduzir usando a regra 81 (expr_simpl)
+    $default  reduce using rule 81 (expr_simpl)
 
 
-Estado 27
+State 27
 
    82 expr_simpl: T_CHAR .
 
-    $padrão  reduzir usando a regra 82 (expr_simpl)
+    $default  reduce using rule 82 (expr_simpl)
 
 
-Estado 28
+State 28
 
    83 expr_simpl: T_FLOAT .
 
-    $padrão  reduzir usando a regra 83 (expr_simpl)
+    $default  reduce using rule 83 (expr_simpl)
 
 
-Estado 29
+State 29
 
    85 expr_simpl: T_INT .
 
-    $padrão  reduzir usando a regra 85 (expr_simpl)
+    $default  reduce using rule 85 (expr_simpl)
 
 
-Estado 30
+State 30
 
    49 desvio: T_CONTINUE .
 
-    $padrão  reduzir usando a regra 49 (desvio)
+    $default  reduce using rule 49 (desvio)
 
 
-Estado 31
+State 31
 
    46 cmd_do_while: T_DO . cmd_composto T_WHILE T_APAREN expr T_FPAREN T_PEV
 
-    T_ACOLCH  deslocar, e ir ao estado 18
+    T_ACOLCH  shift, and go to state 18
 
-    cmd_composto  ir ao estado 79
+    cmd_composto  go to state 79
 
 
-Estado 32
+State 32
 
    29 cmd_composto: T_ACOLCH T_FCOLCH .
 
-    $padrão  reduzir usando a regra 29 (cmd_composto)
+    $default  reduce using rule 29 (cmd_composto)
 
 
-Estado 33
+State 33
 
    37 cmd_for: T_FOR . T_APAREN expr T_PEV expr T_PEV expr T_FPAREN cmd_composto
    38        | T_FOR . T_APAREN expr T_PEV expr T_PEV T_FPAREN cmd_composto
@@ -676,304 +711,304 @@ Estado 33
    43        | T_FOR . T_APAREN T_PEV T_PEV expr T_FPAREN cmd_composto
    44        | T_FOR . T_APAREN T_PEV T_PEV T_FPAREN cmd_composto
 
-    T_APAREN  deslocar, e ir ao estado 80
+    T_APAREN  shift, and go to state 80
 
 
-Estado 34
+State 34
 
    55 expr_atrib: T_ID . T_ATRIB expr_atrib
    84 expr_simpl: T_ID .
    87 chamada_funcao: T_ID . T_APAREN lista_arg T_FPAREN
    88               | T_ID . T_APAREN T_FPAREN
 
-    T_APAREN  deslocar, e ir ao estado 81
-    T_ATRIB   deslocar, e ir ao estado 82
+    T_APAREN  shift, and go to state 81
+    T_ATRIB   shift, and go to state 82
 
-    $padrão  reduzir usando a regra 84 (expr_simpl)
+    $default  reduce using rule 84 (expr_simpl)
 
 
-Estado 35
+State 35
 
    32 cmd_selecao: T_IF . T_APAREN expr T_FPAREN instrucao
    33            | T_IF . T_APAREN expr T_FPAREN instrucao T_ELSE instrucao
 
-    T_APAREN  deslocar, e ir ao estado 83
+    T_APAREN  shift, and go to state 83
 
 
-Estado 36
+State 36
 
    91 oper_unario: T_MAIS .
 
-    $padrão  reduzir usando a regra 91 (oper_unario)
+    $default  reduce using rule 91 (oper_unario)
 
 
-Estado 37
+State 37
 
    92 oper_unario: T_MENOS .
 
-    $padrão  reduzir usando a regra 92 (oper_unario)
+    $default  reduce using rule 92 (oper_unario)
 
 
-Estado 38
+State 38
 
    94 oper_unario_log: T_NAO .
    95                | T_NAO . oper_unario
 
-    T_MAIS   deslocar, e ir ao estado 36
-    T_MENOS  deslocar, e ir ao estado 37
-    T_NAO    deslocar, e ir ao estado 38
+    T_MAIS   shift, and go to state 36
+    T_MENOS  shift, and go to state 37
+    T_NAO    shift, and go to state 38
 
-    $padrão  reduzir usando a regra 94 (oper_unario_log)
+    $default  reduce using rule 94 (oper_unario_log)
 
-    oper_unario      ir ao estado 84
-    oper_unario_log  ir ao estado 68
+    oper_unario      go to state 84
+    oper_unario_log  go to state 68
 
 
-Estado 39
+State 39
 
    51 retorno: T_RETURN .
    52        | T_RETURN . expr
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    $padrão  reduzir usando a regra 51 (retorno)
+    $default  reduce using rule 51 (retorno)
 
-    expr             ir ao estado 85
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 85
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 40
+State 40
 
    45 cmd_while: T_WHILE . T_APAREN expr T_FPAREN cmd_composto
 
-    T_APAREN  deslocar, e ir ao estado 86
+    T_APAREN  shift, and go to state 86
 
 
-Estado 41
+State 41
 
    31 lista_instr: instrucao .
 
-    $padrão  reduzir usando a regra 31 (lista_instr)
+    $default  reduce using rule 31 (lista_instr)
 
 
-Estado 42
+State 42
 
    10 instrucao: instr_decl .
 
-    $padrão  reduzir usando a regra 10 (instrucao)
+    $default  reduce using rule 10 (instrucao)
 
 
-Estado 43
+State 43
 
    18 decl: decl_funcao .
 
-    $padrão  reduzir usando a regra 18 (decl)
+    $default  reduce using rule 18 (decl)
 
 
-Estado 44
+State 44
 
    11 instrucao: cmd_composto .
 
-    $padrão  reduzir usando a regra 11 (instrucao)
+    $default  reduce using rule 11 (instrucao)
 
 
-Estado 45
+State 45
 
    28 cmd_composto: T_ACOLCH lista_instr . T_FCOLCH
    30 lista_instr: lista_instr . instrucao
 
-    T_ACOLCH    deslocar, e ir ao estado 18
-    T_APAREN    deslocar, e ir ao estado 24
-    T_BREAK     deslocar, e ir ao estado 25
-    T_BOOL      deslocar, e ir ao estado 26
-    T_CHAR      deslocar, e ir ao estado 27
-    T_FLOAT     deslocar, e ir ao estado 28
-    T_INT       deslocar, e ir ao estado 29
-    T_CONTINUE  deslocar, e ir ao estado 30
-    T_DO        deslocar, e ir ao estado 31
-    T_FCOLCH    deslocar, e ir ao estado 87
-    T_FOR       deslocar, e ir ao estado 33
-    T_ID        deslocar, e ir ao estado 34
-    T_IF        deslocar, e ir ao estado 35
-    T_MAIS      deslocar, e ir ao estado 36
-    T_MENOS     deslocar, e ir ao estado 37
-    T_NAO       deslocar, e ir ao estado 38
-    T_RETURN    deslocar, e ir ao estado 39
-    T_TIPO      deslocar, e ir ao estado 1
-    T_VOID      deslocar, e ir ao estado 2
-    T_WHILE     deslocar, e ir ao estado 40
+    T_ACOLCH    shift, and go to state 18
+    T_APAREN    shift, and go to state 24
+    T_BREAK     shift, and go to state 25
+    T_BOOL      shift, and go to state 26
+    T_CHAR      shift, and go to state 27
+    T_FLOAT     shift, and go to state 28
+    T_INT       shift, and go to state 29
+    T_CONTINUE  shift, and go to state 30
+    T_DO        shift, and go to state 31
+    T_FCOLCH    shift, and go to state 87
+    T_FOR       shift, and go to state 33
+    T_ID        shift, and go to state 34
+    T_IF        shift, and go to state 35
+    T_MAIS      shift, and go to state 36
+    T_MENOS     shift, and go to state 37
+    T_NAO       shift, and go to state 38
+    T_RETURN    shift, and go to state 39
+    T_TIPO      shift, and go to state 1
+    T_VOID      shift, and go to state 2
+    T_WHILE     shift, and go to state 40
 
-    instrucao        ir ao estado 88
-    instr_decl       ir ao estado 42
-    decl             ir ao estado 8
-    decl_var         ir ao estado 9
-    decl_funcao      ir ao estado 43
-    cmd_composto     ir ao estado 44
-    cmd_selecao      ir ao estado 46
-    cmd_repeticao    ir ao estado 47
-    cmd_for          ir ao estado 48
-    cmd_while        ir ao estado 49
-    cmd_do_while     ir ao estado 50
-    cmd_desvio       ir ao estado 51
-    desvio           ir ao estado 52
-    retorno          ir ao estado 53
-    cmd_expr         ir ao estado 54
-    expr             ir ao estado 55
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    instrucao        go to state 88
+    instr_decl       go to state 42
+    decl             go to state 8
+    decl_var         go to state 9
+    decl_funcao      go to state 43
+    cmd_composto     go to state 44
+    cmd_selecao      go to state 46
+    cmd_repeticao    go to state 47
+    cmd_for          go to state 48
+    cmd_while        go to state 49
+    cmd_do_while     go to state 50
+    cmd_desvio       go to state 51
+    desvio           go to state 52
+    retorno          go to state 53
+    cmd_expr         go to state 54
+    expr             go to state 55
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 46
+State 46
 
    12 instrucao: cmd_selecao .
 
-    $padrão  reduzir usando a regra 12 (instrucao)
+    $default  reduce using rule 12 (instrucao)
 
 
-Estado 47
+State 47
 
    13 instrucao: cmd_repeticao .
 
-    $padrão  reduzir usando a regra 13 (instrucao)
+    $default  reduce using rule 13 (instrucao)
 
 
-Estado 48
+State 48
 
    34 cmd_repeticao: cmd_for .
 
-    $padrão  reduzir usando a regra 34 (cmd_repeticao)
+    $default  reduce using rule 34 (cmd_repeticao)
 
 
-Estado 49
+State 49
 
    35 cmd_repeticao: cmd_while .
 
-    $padrão  reduzir usando a regra 35 (cmd_repeticao)
+    $default  reduce using rule 35 (cmd_repeticao)
 
 
-Estado 50
+State 50
 
    36 cmd_repeticao: cmd_do_while .
 
-    $padrão  reduzir usando a regra 36 (cmd_repeticao)
+    $default  reduce using rule 36 (cmd_repeticao)
 
 
-Estado 51
+State 51
 
    14 instrucao: cmd_desvio .
 
-    $padrão  reduzir usando a regra 14 (instrucao)
+    $default  reduce using rule 14 (instrucao)
 
 
-Estado 52
+State 52
 
    47 cmd_desvio: desvio . T_PEV
 
-    T_PEV  deslocar, e ir ao estado 89
+    T_PEV  shift, and go to state 89
 
 
-Estado 53
+State 53
 
    50 desvio: retorno .
 
-    $padrão  reduzir usando a regra 50 (desvio)
+    $default  reduce using rule 50 (desvio)
 
 
-Estado 54
+State 54
 
    15 instrucao: cmd_expr .
 
-    $padrão  reduzir usando a regra 15 (instrucao)
+    $default  reduce using rule 15 (instrucao)
 
 
-Estado 55
+State 55
 
    53 cmd_expr: expr . T_PEV
 
-    T_PEV  deslocar, e ir ao estado 90
+    T_PEV  shift, and go to state 90
 
 
-Estado 56
+State 56
 
    54 expr: expr_atrib .
 
-    $padrão  reduzir usando a regra 54 (expr)
+    $default  reduce using rule 54 (expr)
 
 
-Estado 57
+State 57
 
    56 expr_atrib: expr_ou .
    57 expr_ou: expr_ou . T_OU expr_e
 
-    T_OU  deslocar, e ir ao estado 91
+    T_OU  shift, and go to state 91
 
-    $padrão  reduzir usando a regra 56 (expr_atrib)
+    $default  reduce using rule 56 (expr_atrib)
 
 
-Estado 58
+State 58
 
    58 expr_ou: expr_e .
    59 expr_e: expr_e . T_E expr_ou_excl
 
-    T_E  deslocar, e ir ao estado 92
+    T_E  shift, and go to state 92
 
-    $padrão  reduzir usando a regra 58 (expr_ou)
+    $default  reduce using rule 58 (expr_ou)
 
 
-Estado 59
+State 59
 
    60 expr_e: expr_ou_excl .
    61 expr_ou_excl: expr_ou_excl . T_OU_EXCL expr_igual
 
-    T_OU_EXCL  deslocar, e ir ao estado 93
+    T_OU_EXCL  shift, and go to state 93
 
-    $padrão  reduzir usando a regra 60 (expr_e)
+    $default  reduce using rule 60 (expr_e)
 
 
-Estado 60
+State 60
 
    62 expr_ou_excl: expr_igual .
    63 expr_igual: expr_igual . T_IGUAL expr_relac
    64           | expr_igual . T_DIFER expr_relac
 
-    T_DIFER  deslocar, e ir ao estado 94
-    T_IGUAL  deslocar, e ir ao estado 95
+    T_DIFER  shift, and go to state 94
+    T_IGUAL  shift, and go to state 95
 
-    $padrão  reduzir usando a regra 62 (expr_ou_excl)
+    $default  reduce using rule 62 (expr_ou_excl)
 
 
-Estado 61
+State 61
 
    65 expr_igual: expr_relac .
    66 expr_relac: expr_relac . T_MENOR expr_soma
@@ -981,168 +1016,168 @@ Estado 61
    68           | expr_relac . T_MENOR_IGUAL expr_soma
    69           | expr_relac . T_MAIOR_IGUAL expr_soma
 
-    T_MAIOR        deslocar, e ir ao estado 96
-    T_MAIOR_IGUAL  deslocar, e ir ao estado 97
-    T_MENOR        deslocar, e ir ao estado 98
-    T_MENOR_IGUAL  deslocar, e ir ao estado 99
+    T_MAIOR        shift, and go to state 96
+    T_MAIOR_IGUAL  shift, and go to state 97
+    T_MENOR        shift, and go to state 98
+    T_MENOR_IGUAL  shift, and go to state 99
 
-    $padrão  reduzir usando a regra 65 (expr_igual)
+    $default  reduce using rule 65 (expr_igual)
 
 
-Estado 62
+State 62
 
    70 expr_relac: expr_soma .
    71 expr_soma: expr_soma . T_MAIS expr_mult
    72          | expr_soma . T_MENOS expr_mult
 
-    T_MAIS   deslocar, e ir ao estado 100
-    T_MENOS  deslocar, e ir ao estado 101
+    T_MAIS   shift, and go to state 100
+    T_MENOS  shift, and go to state 101
 
-    $padrão  reduzir usando a regra 70 (expr_relac)
+    $default  reduce using rule 70 (expr_relac)
 
 
-Estado 63
+State 63
 
    73 expr_soma: expr_mult .
    74 expr_mult: expr_mult . T_VEZES expr_simpl
    75          | expr_mult . T_DIV expr_simpl
    76          | expr_mult . T_RESTO expr_simpl
 
-    T_DIV    deslocar, e ir ao estado 102
-    T_RESTO  deslocar, e ir ao estado 103
-    T_VEZES  deslocar, e ir ao estado 104
+    T_DIV    shift, and go to state 102
+    T_RESTO  shift, and go to state 103
+    T_VEZES  shift, and go to state 104
 
-    $padrão  reduzir usando a regra 73 (expr_soma)
+    $default  reduce using rule 73 (expr_soma)
 
 
-Estado 64
+State 64
 
    77 expr_mult: expr_unaria .
 
-    $padrão  reduzir usando a regra 77 (expr_mult)
+    $default  reduce using rule 77 (expr_mult)
 
 
-Estado 65
+State 65
 
    79 expr_unaria: expr_simpl .
 
-    $padrão  reduzir usando a regra 79 (expr_unaria)
+    $default  reduce using rule 79 (expr_unaria)
 
 
-Estado 66
+State 66
 
    86 expr_simpl: chamada_funcao .
 
-    $padrão  reduzir usando a regra 86 (expr_simpl)
+    $default  reduce using rule 86 (expr_simpl)
 
 
-Estado 67
+State 67
 
    78 expr_unaria: oper_unario . expr_simpl
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
 
-    expr_simpl      ir ao estado 106
-    chamada_funcao  ir ao estado 66
+    expr_simpl      go to state 106
+    chamada_funcao  go to state 66
 
 
-Estado 68
+State 68
 
    93 oper_unario: oper_unario_log .
 
-    $padrão  reduzir usando a regra 93 (oper_unario)
+    $default  reduce using rule 93 (oper_unario)
 
 
-Estado 69
+State 69
 
     9 param: T_TIPO . T_ID
 
-    T_ID  deslocar, e ir ao estado 107
+    T_ID  shift, and go to state 107
 
 
-Estado 70
+State 70
 
    26 decl_funcao: T_TIPO T_ID T_APAREN T_VOID . T_FPAREN
 
-    T_FPAREN  deslocar, e ir ao estado 108
+    T_FPAREN  shift, and go to state 108
 
 
-Estado 71
+State 71
 
     8 lista_param: lista_param . T_VIRG param
    24 decl_funcao: T_TIPO T_ID T_APAREN lista_param . T_FPAREN
 
-    T_FPAREN  deslocar, e ir ao estado 109
-    T_VIRG    deslocar, e ir ao estado 110
+    T_FPAREN  shift, and go to state 109
+    T_VIRG    shift, and go to state 110
 
 
-Estado 72
+State 72
 
     7 lista_param: param .
 
-    $padrão  reduzir usando a regra 7 (lista_param)
+    $default  reduce using rule 7 (lista_param)
 
 
-Estado 73
+State 73
 
    23 inic: T_ID T_ATRIB expr .
 
-    $padrão  reduzir usando a regra 23 (inic)
+    $default  reduce using rule 23 (inic)
 
 
-Estado 74
+State 74
 
    22 inic: T_ID .
    23     | T_ID . T_ATRIB expr
 
-    T_ATRIB  deslocar, e ir ao estado 21
+    T_ATRIB  shift, and go to state 21
 
-    $padrão  reduzir usando a regra 22 (inic)
+    $default  reduce using rule 22 (inic)
 
 
-Estado 75
+State 75
 
    20 lista_inic: lista_inic T_VIRG inic .
 
-    $padrão  reduzir usando a regra 20 (lista_inic)
+    $default  reduce using rule 20 (lista_inic)
 
 
-Estado 76
+State 76
 
    27 decl_funcao: T_VOID T_ID T_APAREN T_VOID . T_FPAREN
 
-    T_FPAREN  deslocar, e ir ao estado 111
+    T_FPAREN  shift, and go to state 111
 
 
-Estado 77
+State 77
 
     8 lista_param: lista_param . T_VIRG param
    25 decl_funcao: T_VOID T_ID T_APAREN lista_param . T_FPAREN
 
-    T_FPAREN  deslocar, e ir ao estado 112
-    T_VIRG    deslocar, e ir ao estado 110
+    T_FPAREN  shift, and go to state 112
+    T_VIRG    shift, and go to state 110
 
 
-Estado 78
+State 78
 
    80 expr_simpl: T_APAREN expr . T_FPAREN
 
-    T_FPAREN  deslocar, e ir ao estado 113
+    T_FPAREN  shift, and go to state 113
 
 
-Estado 79
+State 79
 
    46 cmd_do_while: T_DO cmd_composto . T_WHILE T_APAREN expr T_FPAREN T_PEV
 
-    T_WHILE  deslocar, e ir ao estado 114
+    T_WHILE  shift, and go to state 114
 
 
-Estado 80
+State 80
 
    37 cmd_for: T_FOR T_APAREN . expr T_PEV expr T_PEV expr T_FPAREN cmd_composto
    38        | T_FOR T_APAREN . expr T_PEV expr T_PEV T_FPAREN cmd_composto
@@ -1153,703 +1188,703 @@ Estado 80
    43        | T_FOR T_APAREN . T_PEV T_PEV expr T_FPAREN cmd_composto
    44        | T_FOR T_APAREN . T_PEV T_PEV T_FPAREN cmd_composto
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
-    T_PEV     deslocar, e ir ao estado 115
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
+    T_PEV     shift, and go to state 115
 
-    expr             ir ao estado 116
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 116
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 81
+State 81
 
    87 chamada_funcao: T_ID T_APAREN . lista_arg T_FPAREN
    88               | T_ID T_APAREN . T_FPAREN
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_FPAREN  deslocar, e ir ao estado 117
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_FPAREN  shift, and go to state 117
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr             ir ao estado 118
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    lista_arg        ir ao estado 119
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 118
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    lista_arg        go to state 119
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 82
+State 82
 
    55 expr_atrib: T_ID T_ATRIB . expr_atrib
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr_atrib       ir ao estado 120
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr_atrib       go to state 120
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 83
+State 83
 
    32 cmd_selecao: T_IF T_APAREN . expr T_FPAREN instrucao
    33            | T_IF T_APAREN . expr T_FPAREN instrucao T_ELSE instrucao
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr             ir ao estado 121
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 121
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 84
+State 84
 
    95 oper_unario_log: T_NAO oper_unario .
 
-    $padrão  reduzir usando a regra 95 (oper_unario_log)
+    $default  reduce using rule 95 (oper_unario_log)
 
 
-Estado 85
+State 85
 
    52 retorno: T_RETURN expr .
 
-    $padrão  reduzir usando a regra 52 (retorno)
+    $default  reduce using rule 52 (retorno)
 
 
-Estado 86
+State 86
 
    45 cmd_while: T_WHILE T_APAREN . expr T_FPAREN cmd_composto
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr             ir ao estado 122
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 122
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 87
+State 87
 
    28 cmd_composto: T_ACOLCH lista_instr T_FCOLCH .
 
-    $padrão  reduzir usando a regra 28 (cmd_composto)
+    $default  reduce using rule 28 (cmd_composto)
 
 
-Estado 88
+State 88
 
    30 lista_instr: lista_instr instrucao .
 
-    $padrão  reduzir usando a regra 30 (lista_instr)
+    $default  reduce using rule 30 (lista_instr)
 
 
-Estado 89
+State 89
 
    47 cmd_desvio: desvio T_PEV .
 
-    $padrão  reduzir usando a regra 47 (cmd_desvio)
+    $default  reduce using rule 47 (cmd_desvio)
 
 
-Estado 90
+State 90
 
    53 cmd_expr: expr T_PEV .
 
-    $padrão  reduzir usando a regra 53 (cmd_expr)
+    $default  reduce using rule 53 (cmd_expr)
 
 
-Estado 91
+State 91
 
    57 expr_ou: expr_ou T_OU . expr_e
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr_e           ir ao estado 123
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr_e           go to state 123
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 92
+State 92
 
    59 expr_e: expr_e T_E . expr_ou_excl
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr_ou_excl     ir ao estado 124
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr_ou_excl     go to state 124
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 93
+State 93
 
    61 expr_ou_excl: expr_ou_excl T_OU_EXCL . expr_igual
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr_igual       ir ao estado 125
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr_igual       go to state 125
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 94
+State 94
 
    64 expr_igual: expr_igual T_DIFER . expr_relac
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr_relac       ir ao estado 126
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr_relac       go to state 126
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 95
+State 95
 
    63 expr_igual: expr_igual T_IGUAL . expr_relac
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr_relac       ir ao estado 127
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr_relac       go to state 127
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 96
+State 96
 
    67 expr_relac: expr_relac T_MAIOR . expr_soma
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr_soma        ir ao estado 128
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr_soma        go to state 128
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 97
+State 97
 
    69 expr_relac: expr_relac T_MAIOR_IGUAL . expr_soma
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr_soma        ir ao estado 129
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr_soma        go to state 129
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 98
+State 98
 
    66 expr_relac: expr_relac T_MENOR . expr_soma
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr_soma        ir ao estado 130
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr_soma        go to state 130
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 99
+State 99
 
    68 expr_relac: expr_relac T_MENOR_IGUAL . expr_soma
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr_soma        ir ao estado 131
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr_soma        go to state 131
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 100
+State 100
 
    71 expr_soma: expr_soma T_MAIS . expr_mult
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr_mult        ir ao estado 132
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr_mult        go to state 132
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 101
+State 101
 
    72 expr_soma: expr_soma T_MENOS . expr_mult
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr_mult        ir ao estado 133
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr_mult        go to state 133
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 102
+State 102
 
    75 expr_mult: expr_mult T_DIV . expr_simpl
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
 
-    expr_simpl      ir ao estado 134
-    chamada_funcao  ir ao estado 66
+    expr_simpl      go to state 134
+    chamada_funcao  go to state 66
 
 
-Estado 103
+State 103
 
    76 expr_mult: expr_mult T_RESTO . expr_simpl
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
 
-    expr_simpl      ir ao estado 135
-    chamada_funcao  ir ao estado 66
+    expr_simpl      go to state 135
+    chamada_funcao  go to state 66
 
 
-Estado 104
+State 104
 
    74 expr_mult: expr_mult T_VEZES . expr_simpl
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 105
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 105
 
-    expr_simpl      ir ao estado 136
-    chamada_funcao  ir ao estado 66
+    expr_simpl      go to state 136
+    chamada_funcao  go to state 66
 
 
-Estado 105
+State 105
 
    84 expr_simpl: T_ID .
    87 chamada_funcao: T_ID . T_APAREN lista_arg T_FPAREN
    88               | T_ID . T_APAREN T_FPAREN
 
-    T_APAREN  deslocar, e ir ao estado 81
+    T_APAREN  shift, and go to state 81
 
-    $padrão  reduzir usando a regra 84 (expr_simpl)
+    $default  reduce using rule 84 (expr_simpl)
 
 
-Estado 106
+State 106
 
    78 expr_unaria: oper_unario expr_simpl .
 
-    $padrão  reduzir usando a regra 78 (expr_unaria)
+    $default  reduce using rule 78 (expr_unaria)
 
 
-Estado 107
+State 107
 
     9 param: T_TIPO T_ID .
 
-    $padrão  reduzir usando a regra 9 (param)
+    $default  reduce using rule 9 (param)
 
 
-Estado 108
+State 108
 
    26 decl_funcao: T_TIPO T_ID T_APAREN T_VOID T_FPAREN .
 
-    $padrão  reduzir usando a regra 26 (decl_funcao)
+    $default  reduce using rule 26 (decl_funcao)
 
 
-Estado 109
+State 109
 
    24 decl_funcao: T_TIPO T_ID T_APAREN lista_param T_FPAREN .
 
-    $padrão  reduzir usando a regra 24 (decl_funcao)
+    $default  reduce using rule 24 (decl_funcao)
 
 
-Estado 110
+State 110
 
     8 lista_param: lista_param T_VIRG . param
 
-    T_TIPO  deslocar, e ir ao estado 69
+    T_TIPO  shift, and go to state 69
 
-    param  ir ao estado 137
+    param  go to state 137
 
 
-Estado 111
+State 111
 
    27 decl_funcao: T_VOID T_ID T_APAREN T_VOID T_FPAREN .
 
-    $padrão  reduzir usando a regra 27 (decl_funcao)
+    $default  reduce using rule 27 (decl_funcao)
 
 
-Estado 112
+State 112
 
    25 decl_funcao: T_VOID T_ID T_APAREN lista_param T_FPAREN .
 
-    $padrão  reduzir usando a regra 25 (decl_funcao)
+    $default  reduce using rule 25 (decl_funcao)
 
 
-Estado 113
+State 113
 
    80 expr_simpl: T_APAREN expr T_FPAREN .
 
-    $padrão  reduzir usando a regra 80 (expr_simpl)
+    $default  reduce using rule 80 (expr_simpl)
 
 
-Estado 114
+State 114
 
    46 cmd_do_while: T_DO cmd_composto T_WHILE . T_APAREN expr T_FPAREN T_PEV
 
-    T_APAREN  deslocar, e ir ao estado 138
+    T_APAREN  shift, and go to state 138
 
 
-Estado 115
+State 115
 
    41 cmd_for: T_FOR T_APAREN T_PEV . expr T_PEV expr T_FPAREN cmd_composto
    42        | T_FOR T_APAREN T_PEV . expr T_PEV T_FPAREN cmd_composto
    43        | T_FOR T_APAREN T_PEV . T_PEV expr T_FPAREN cmd_composto
    44        | T_FOR T_APAREN T_PEV . T_PEV T_FPAREN cmd_composto
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
-    T_PEV     deslocar, e ir ao estado 139
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
+    T_PEV     shift, and go to state 139
 
-    expr             ir ao estado 140
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 140
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 116
+State 116
 
    37 cmd_for: T_FOR T_APAREN expr . T_PEV expr T_PEV expr T_FPAREN cmd_composto
    38        | T_FOR T_APAREN expr . T_PEV expr T_PEV T_FPAREN cmd_composto
    39        | T_FOR T_APAREN expr . T_PEV T_PEV expr T_FPAREN cmd_composto
    40        | T_FOR T_APAREN expr . T_PEV T_PEV T_FPAREN cmd_composto
 
-    T_PEV  deslocar, e ir ao estado 141
+    T_PEV  shift, and go to state 141
 
 
-Estado 117
+State 117
 
    88 chamada_funcao: T_ID T_APAREN T_FPAREN .
 
-    $padrão  reduzir usando a regra 88 (chamada_funcao)
+    $default  reduce using rule 88 (chamada_funcao)
 
 
-Estado 118
+State 118
 
    90 lista_arg: expr .
 
-    $padrão  reduzir usando a regra 90 (lista_arg)
+    $default  reduce using rule 90 (lista_arg)
 
 
-Estado 119
+State 119
 
    87 chamada_funcao: T_ID T_APAREN lista_arg . T_FPAREN
    89 lista_arg: lista_arg . T_VIRG expr
 
-    T_FPAREN  deslocar, e ir ao estado 142
-    T_VIRG    deslocar, e ir ao estado 143
+    T_FPAREN  shift, and go to state 142
+    T_VIRG    shift, and go to state 143
 
 
-Estado 120
+State 120
 
    55 expr_atrib: T_ID T_ATRIB expr_atrib .
 
-    $padrão  reduzir usando a regra 55 (expr_atrib)
+    $default  reduce using rule 55 (expr_atrib)
 
 
-Estado 121
+State 121
 
    32 cmd_selecao: T_IF T_APAREN expr . T_FPAREN instrucao
    33            | T_IF T_APAREN expr . T_FPAREN instrucao T_ELSE instrucao
 
-    T_FPAREN  deslocar, e ir ao estado 144
+    T_FPAREN  shift, and go to state 144
 
 
-Estado 122
+State 122
 
    45 cmd_while: T_WHILE T_APAREN expr . T_FPAREN cmd_composto
 
-    T_FPAREN  deslocar, e ir ao estado 145
+    T_FPAREN  shift, and go to state 145
 
 
-Estado 123
+State 123
 
    57 expr_ou: expr_ou T_OU expr_e .
    59 expr_e: expr_e . T_E expr_ou_excl
 
-    T_E  deslocar, e ir ao estado 92
+    T_E  shift, and go to state 92
 
-    $padrão  reduzir usando a regra 57 (expr_ou)
+    $default  reduce using rule 57 (expr_ou)
 
 
-Estado 124
+State 124
 
    59 expr_e: expr_e T_E expr_ou_excl .
    61 expr_ou_excl: expr_ou_excl . T_OU_EXCL expr_igual
 
-    T_OU_EXCL  deslocar, e ir ao estado 93
+    T_OU_EXCL  shift, and go to state 93
 
-    $padrão  reduzir usando a regra 59 (expr_e)
+    $default  reduce using rule 59 (expr_e)
 
 
-Estado 125
+State 125
 
    61 expr_ou_excl: expr_ou_excl T_OU_EXCL expr_igual .
    63 expr_igual: expr_igual . T_IGUAL expr_relac
    64           | expr_igual . T_DIFER expr_relac
 
-    T_DIFER  deslocar, e ir ao estado 94
-    T_IGUAL  deslocar, e ir ao estado 95
+    T_DIFER  shift, and go to state 94
+    T_IGUAL  shift, and go to state 95
 
-    $padrão  reduzir usando a regra 61 (expr_ou_excl)
+    $default  reduce using rule 61 (expr_ou_excl)
 
 
-Estado 126
+State 126
 
    64 expr_igual: expr_igual T_DIFER expr_relac .
    66 expr_relac: expr_relac . T_MENOR expr_soma
@@ -1857,15 +1892,15 @@ Estado 126
    68           | expr_relac . T_MENOR_IGUAL expr_soma
    69           | expr_relac . T_MAIOR_IGUAL expr_soma
 
-    T_MAIOR        deslocar, e ir ao estado 96
-    T_MAIOR_IGUAL  deslocar, e ir ao estado 97
-    T_MENOR        deslocar, e ir ao estado 98
-    T_MENOR_IGUAL  deslocar, e ir ao estado 99
+    T_MAIOR        shift, and go to state 96
+    T_MAIOR_IGUAL  shift, and go to state 97
+    T_MENOR        shift, and go to state 98
+    T_MENOR_IGUAL  shift, and go to state 99
 
-    $padrão  reduzir usando a regra 64 (expr_igual)
+    $default  reduce using rule 64 (expr_igual)
 
 
-Estado 127
+State 127
 
    63 expr_igual: expr_igual T_IGUAL expr_relac .
    66 expr_relac: expr_relac . T_MENOR expr_soma
@@ -1873,686 +1908,686 @@ Estado 127
    68           | expr_relac . T_MENOR_IGUAL expr_soma
    69           | expr_relac . T_MAIOR_IGUAL expr_soma
 
-    T_MAIOR        deslocar, e ir ao estado 96
-    T_MAIOR_IGUAL  deslocar, e ir ao estado 97
-    T_MENOR        deslocar, e ir ao estado 98
-    T_MENOR_IGUAL  deslocar, e ir ao estado 99
+    T_MAIOR        shift, and go to state 96
+    T_MAIOR_IGUAL  shift, and go to state 97
+    T_MENOR        shift, and go to state 98
+    T_MENOR_IGUAL  shift, and go to state 99
 
-    $padrão  reduzir usando a regra 63 (expr_igual)
+    $default  reduce using rule 63 (expr_igual)
 
 
-Estado 128
+State 128
 
    67 expr_relac: expr_relac T_MAIOR expr_soma .
    71 expr_soma: expr_soma . T_MAIS expr_mult
    72          | expr_soma . T_MENOS expr_mult
 
-    T_MAIS   deslocar, e ir ao estado 100
-    T_MENOS  deslocar, e ir ao estado 101
+    T_MAIS   shift, and go to state 100
+    T_MENOS  shift, and go to state 101
 
-    $padrão  reduzir usando a regra 67 (expr_relac)
+    $default  reduce using rule 67 (expr_relac)
 
 
-Estado 129
+State 129
 
    69 expr_relac: expr_relac T_MAIOR_IGUAL expr_soma .
    71 expr_soma: expr_soma . T_MAIS expr_mult
    72          | expr_soma . T_MENOS expr_mult
 
-    T_MAIS   deslocar, e ir ao estado 100
-    T_MENOS  deslocar, e ir ao estado 101
+    T_MAIS   shift, and go to state 100
+    T_MENOS  shift, and go to state 101
 
-    $padrão  reduzir usando a regra 69 (expr_relac)
+    $default  reduce using rule 69 (expr_relac)
 
 
-Estado 130
+State 130
 
    66 expr_relac: expr_relac T_MENOR expr_soma .
    71 expr_soma: expr_soma . T_MAIS expr_mult
    72          | expr_soma . T_MENOS expr_mult
 
-    T_MAIS   deslocar, e ir ao estado 100
-    T_MENOS  deslocar, e ir ao estado 101
+    T_MAIS   shift, and go to state 100
+    T_MENOS  shift, and go to state 101
 
-    $padrão  reduzir usando a regra 66 (expr_relac)
+    $default  reduce using rule 66 (expr_relac)
 
 
-Estado 131
+State 131
 
    68 expr_relac: expr_relac T_MENOR_IGUAL expr_soma .
    71 expr_soma: expr_soma . T_MAIS expr_mult
    72          | expr_soma . T_MENOS expr_mult
 
-    T_MAIS   deslocar, e ir ao estado 100
-    T_MENOS  deslocar, e ir ao estado 101
+    T_MAIS   shift, and go to state 100
+    T_MENOS  shift, and go to state 101
 
-    $padrão  reduzir usando a regra 68 (expr_relac)
+    $default  reduce using rule 68 (expr_relac)
 
 
-Estado 132
+State 132
 
    71 expr_soma: expr_soma T_MAIS expr_mult .
    74 expr_mult: expr_mult . T_VEZES expr_simpl
    75          | expr_mult . T_DIV expr_simpl
    76          | expr_mult . T_RESTO expr_simpl
 
-    T_DIV    deslocar, e ir ao estado 102
-    T_RESTO  deslocar, e ir ao estado 103
-    T_VEZES  deslocar, e ir ao estado 104
+    T_DIV    shift, and go to state 102
+    T_RESTO  shift, and go to state 103
+    T_VEZES  shift, and go to state 104
 
-    $padrão  reduzir usando a regra 71 (expr_soma)
+    $default  reduce using rule 71 (expr_soma)
 
 
-Estado 133
+State 133
 
    72 expr_soma: expr_soma T_MENOS expr_mult .
    74 expr_mult: expr_mult . T_VEZES expr_simpl
    75          | expr_mult . T_DIV expr_simpl
    76          | expr_mult . T_RESTO expr_simpl
 
-    T_DIV    deslocar, e ir ao estado 102
-    T_RESTO  deslocar, e ir ao estado 103
-    T_VEZES  deslocar, e ir ao estado 104
+    T_DIV    shift, and go to state 102
+    T_RESTO  shift, and go to state 103
+    T_VEZES  shift, and go to state 104
 
-    $padrão  reduzir usando a regra 72 (expr_soma)
+    $default  reduce using rule 72 (expr_soma)
 
 
-Estado 134
+State 134
 
    75 expr_mult: expr_mult T_DIV expr_simpl .
 
-    $padrão  reduzir usando a regra 75 (expr_mult)
+    $default  reduce using rule 75 (expr_mult)
 
 
-Estado 135
+State 135
 
    76 expr_mult: expr_mult T_RESTO expr_simpl .
 
-    $padrão  reduzir usando a regra 76 (expr_mult)
+    $default  reduce using rule 76 (expr_mult)
 
 
-Estado 136
+State 136
 
    74 expr_mult: expr_mult T_VEZES expr_simpl .
 
-    $padrão  reduzir usando a regra 74 (expr_mult)
+    $default  reduce using rule 74 (expr_mult)
 
 
-Estado 137
+State 137
 
     8 lista_param: lista_param T_VIRG param .
 
-    $padrão  reduzir usando a regra 8 (lista_param)
+    $default  reduce using rule 8 (lista_param)
 
 
-Estado 138
+State 138
 
    46 cmd_do_while: T_DO cmd_composto T_WHILE T_APAREN . expr T_FPAREN T_PEV
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr             ir ao estado 146
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 146
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 139
+State 139
 
    43 cmd_for: T_FOR T_APAREN T_PEV T_PEV . expr T_FPAREN cmd_composto
    44        | T_FOR T_APAREN T_PEV T_PEV . T_FPAREN cmd_composto
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_FPAREN  deslocar, e ir ao estado 147
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_FPAREN  shift, and go to state 147
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr             ir ao estado 148
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 148
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 140
+State 140
 
    41 cmd_for: T_FOR T_APAREN T_PEV expr . T_PEV expr T_FPAREN cmd_composto
    42        | T_FOR T_APAREN T_PEV expr . T_PEV T_FPAREN cmd_composto
 
-    T_PEV  deslocar, e ir ao estado 149
+    T_PEV  shift, and go to state 149
 
 
-Estado 141
+State 141
 
    37 cmd_for: T_FOR T_APAREN expr T_PEV . expr T_PEV expr T_FPAREN cmd_composto
    38        | T_FOR T_APAREN expr T_PEV . expr T_PEV T_FPAREN cmd_composto
    39        | T_FOR T_APAREN expr T_PEV . T_PEV expr T_FPAREN cmd_composto
    40        | T_FOR T_APAREN expr T_PEV . T_PEV T_FPAREN cmd_composto
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
-    T_PEV     deslocar, e ir ao estado 150
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
+    T_PEV     shift, and go to state 150
 
-    expr             ir ao estado 151
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 151
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 142
+State 142
 
    87 chamada_funcao: T_ID T_APAREN lista_arg T_FPAREN .
 
-    $padrão  reduzir usando a regra 87 (chamada_funcao)
+    $default  reduce using rule 87 (chamada_funcao)
 
 
-Estado 143
+State 143
 
    89 lista_arg: lista_arg T_VIRG . expr
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr             ir ao estado 152
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 152
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 144
+State 144
 
    32 cmd_selecao: T_IF T_APAREN expr T_FPAREN . instrucao
    33            | T_IF T_APAREN expr T_FPAREN . instrucao T_ELSE instrucao
 
-    T_ACOLCH    deslocar, e ir ao estado 18
-    T_APAREN    deslocar, e ir ao estado 24
-    T_BREAK     deslocar, e ir ao estado 25
-    T_BOOL      deslocar, e ir ao estado 26
-    T_CHAR      deslocar, e ir ao estado 27
-    T_FLOAT     deslocar, e ir ao estado 28
-    T_INT       deslocar, e ir ao estado 29
-    T_CONTINUE  deslocar, e ir ao estado 30
-    T_DO        deslocar, e ir ao estado 31
-    T_FOR       deslocar, e ir ao estado 33
-    T_ID        deslocar, e ir ao estado 34
-    T_IF        deslocar, e ir ao estado 35
-    T_MAIS      deslocar, e ir ao estado 36
-    T_MENOS     deslocar, e ir ao estado 37
-    T_NAO       deslocar, e ir ao estado 38
-    T_RETURN    deslocar, e ir ao estado 39
-    T_TIPO      deslocar, e ir ao estado 1
-    T_VOID      deslocar, e ir ao estado 2
-    T_WHILE     deslocar, e ir ao estado 40
+    T_ACOLCH    shift, and go to state 18
+    T_APAREN    shift, and go to state 24
+    T_BREAK     shift, and go to state 25
+    T_BOOL      shift, and go to state 26
+    T_CHAR      shift, and go to state 27
+    T_FLOAT     shift, and go to state 28
+    T_INT       shift, and go to state 29
+    T_CONTINUE  shift, and go to state 30
+    T_DO        shift, and go to state 31
+    T_FOR       shift, and go to state 33
+    T_ID        shift, and go to state 34
+    T_IF        shift, and go to state 35
+    T_MAIS      shift, and go to state 36
+    T_MENOS     shift, and go to state 37
+    T_NAO       shift, and go to state 38
+    T_RETURN    shift, and go to state 39
+    T_TIPO      shift, and go to state 1
+    T_VOID      shift, and go to state 2
+    T_WHILE     shift, and go to state 40
 
-    instrucao        ir ao estado 153
-    instr_decl       ir ao estado 42
-    decl             ir ao estado 8
-    decl_var         ir ao estado 9
-    decl_funcao      ir ao estado 43
-    cmd_composto     ir ao estado 44
-    cmd_selecao      ir ao estado 46
-    cmd_repeticao    ir ao estado 47
-    cmd_for          ir ao estado 48
-    cmd_while        ir ao estado 49
-    cmd_do_while     ir ao estado 50
-    cmd_desvio       ir ao estado 51
-    desvio           ir ao estado 52
-    retorno          ir ao estado 53
-    cmd_expr         ir ao estado 54
-    expr             ir ao estado 55
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    instrucao        go to state 153
+    instr_decl       go to state 42
+    decl             go to state 8
+    decl_var         go to state 9
+    decl_funcao      go to state 43
+    cmd_composto     go to state 44
+    cmd_selecao      go to state 46
+    cmd_repeticao    go to state 47
+    cmd_for          go to state 48
+    cmd_while        go to state 49
+    cmd_do_while     go to state 50
+    cmd_desvio       go to state 51
+    desvio           go to state 52
+    retorno          go to state 53
+    cmd_expr         go to state 54
+    expr             go to state 55
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 145
+State 145
 
    45 cmd_while: T_WHILE T_APAREN expr T_FPAREN . cmd_composto
 
-    T_ACOLCH  deslocar, e ir ao estado 18
+    T_ACOLCH  shift, and go to state 18
 
-    cmd_composto  ir ao estado 154
+    cmd_composto  go to state 154
 
 
-Estado 146
+State 146
 
    46 cmd_do_while: T_DO cmd_composto T_WHILE T_APAREN expr . T_FPAREN T_PEV
 
-    T_FPAREN  deslocar, e ir ao estado 155
+    T_FPAREN  shift, and go to state 155
 
 
-Estado 147
+State 147
 
    44 cmd_for: T_FOR T_APAREN T_PEV T_PEV T_FPAREN . cmd_composto
 
-    T_ACOLCH  deslocar, e ir ao estado 18
+    T_ACOLCH  shift, and go to state 18
 
-    cmd_composto  ir ao estado 156
+    cmd_composto  go to state 156
 
 
-Estado 148
+State 148
 
    43 cmd_for: T_FOR T_APAREN T_PEV T_PEV expr . T_FPAREN cmd_composto
 
-    T_FPAREN  deslocar, e ir ao estado 157
+    T_FPAREN  shift, and go to state 157
 
 
-Estado 149
+State 149
 
    41 cmd_for: T_FOR T_APAREN T_PEV expr T_PEV . expr T_FPAREN cmd_composto
    42        | T_FOR T_APAREN T_PEV expr T_PEV . T_FPAREN cmd_composto
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_FPAREN  deslocar, e ir ao estado 158
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_FPAREN  shift, and go to state 158
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr             ir ao estado 159
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 159
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 150
+State 150
 
    39 cmd_for: T_FOR T_APAREN expr T_PEV T_PEV . expr T_FPAREN cmd_composto
    40        | T_FOR T_APAREN expr T_PEV T_PEV . T_FPAREN cmd_composto
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_FPAREN  deslocar, e ir ao estado 160
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_FPAREN  shift, and go to state 160
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr             ir ao estado 161
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 161
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 151
+State 151
 
    37 cmd_for: T_FOR T_APAREN expr T_PEV expr . T_PEV expr T_FPAREN cmd_composto
    38        | T_FOR T_APAREN expr T_PEV expr . T_PEV T_FPAREN cmd_composto
 
-    T_PEV  deslocar, e ir ao estado 162
+    T_PEV  shift, and go to state 162
 
 
-Estado 152
+State 152
 
    89 lista_arg: lista_arg T_VIRG expr .
 
-    $padrão  reduzir usando a regra 89 (lista_arg)
+    $default  reduce using rule 89 (lista_arg)
 
 
-Estado 153
+State 153
 
    32 cmd_selecao: T_IF T_APAREN expr T_FPAREN instrucao .
    33            | T_IF T_APAREN expr T_FPAREN instrucao . T_ELSE instrucao
 
-    T_ELSE  deslocar, e ir ao estado 163
+    T_ELSE  shift, and go to state 163
 
-    $padrão  reduzir usando a regra 32 (cmd_selecao)
+    $default  reduce using rule 32 (cmd_selecao)
 
 
-Estado 154
+State 154
 
    45 cmd_while: T_WHILE T_APAREN expr T_FPAREN cmd_composto .
 
-    $padrão  reduzir usando a regra 45 (cmd_while)
+    $default  reduce using rule 45 (cmd_while)
 
 
-Estado 155
+State 155
 
    46 cmd_do_while: T_DO cmd_composto T_WHILE T_APAREN expr T_FPAREN . T_PEV
 
-    T_PEV  deslocar, e ir ao estado 164
+    T_PEV  shift, and go to state 164
 
 
-Estado 156
+State 156
 
    44 cmd_for: T_FOR T_APAREN T_PEV T_PEV T_FPAREN cmd_composto .
 
-    $padrão  reduzir usando a regra 44 (cmd_for)
+    $default  reduce using rule 44 (cmd_for)
 
 
-Estado 157
+State 157
 
    43 cmd_for: T_FOR T_APAREN T_PEV T_PEV expr T_FPAREN . cmd_composto
 
-    T_ACOLCH  deslocar, e ir ao estado 18
+    T_ACOLCH  shift, and go to state 18
 
-    cmd_composto  ir ao estado 165
+    cmd_composto  go to state 165
 
 
-Estado 158
+State 158
 
    42 cmd_for: T_FOR T_APAREN T_PEV expr T_PEV T_FPAREN . cmd_composto
 
-    T_ACOLCH  deslocar, e ir ao estado 18
+    T_ACOLCH  shift, and go to state 18
 
-    cmd_composto  ir ao estado 166
+    cmd_composto  go to state 166
 
 
-Estado 159
+State 159
 
    41 cmd_for: T_FOR T_APAREN T_PEV expr T_PEV expr . T_FPAREN cmd_composto
 
-    T_FPAREN  deslocar, e ir ao estado 167
+    T_FPAREN  shift, and go to state 167
 
 
-Estado 160
+State 160
 
    40 cmd_for: T_FOR T_APAREN expr T_PEV T_PEV T_FPAREN . cmd_composto
 
-    T_ACOLCH  deslocar, e ir ao estado 18
+    T_ACOLCH  shift, and go to state 18
 
-    cmd_composto  ir ao estado 168
+    cmd_composto  go to state 168
 
 
-Estado 161
+State 161
 
    39 cmd_for: T_FOR T_APAREN expr T_PEV T_PEV expr . T_FPAREN cmd_composto
 
-    T_FPAREN  deslocar, e ir ao estado 169
+    T_FPAREN  shift, and go to state 169
 
 
-Estado 162
+State 162
 
    37 cmd_for: T_FOR T_APAREN expr T_PEV expr T_PEV . expr T_FPAREN cmd_composto
    38        | T_FOR T_APAREN expr T_PEV expr T_PEV . T_FPAREN cmd_composto
 
-    T_APAREN  deslocar, e ir ao estado 24
-    T_BOOL    deslocar, e ir ao estado 26
-    T_CHAR    deslocar, e ir ao estado 27
-    T_FLOAT   deslocar, e ir ao estado 28
-    T_INT     deslocar, e ir ao estado 29
-    T_FPAREN  deslocar, e ir ao estado 170
-    T_ID      deslocar, e ir ao estado 34
-    T_MAIS    deslocar, e ir ao estado 36
-    T_MENOS   deslocar, e ir ao estado 37
-    T_NAO     deslocar, e ir ao estado 38
+    T_APAREN  shift, and go to state 24
+    T_BOOL    shift, and go to state 26
+    T_CHAR    shift, and go to state 27
+    T_FLOAT   shift, and go to state 28
+    T_INT     shift, and go to state 29
+    T_FPAREN  shift, and go to state 170
+    T_ID      shift, and go to state 34
+    T_MAIS    shift, and go to state 36
+    T_MENOS   shift, and go to state 37
+    T_NAO     shift, and go to state 38
 
-    expr             ir ao estado 171
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    expr             go to state 171
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 163
+State 163
 
    33 cmd_selecao: T_IF T_APAREN expr T_FPAREN instrucao T_ELSE . instrucao
 
-    T_ACOLCH    deslocar, e ir ao estado 18
-    T_APAREN    deslocar, e ir ao estado 24
-    T_BREAK     deslocar, e ir ao estado 25
-    T_BOOL      deslocar, e ir ao estado 26
-    T_CHAR      deslocar, e ir ao estado 27
-    T_FLOAT     deslocar, e ir ao estado 28
-    T_INT       deslocar, e ir ao estado 29
-    T_CONTINUE  deslocar, e ir ao estado 30
-    T_DO        deslocar, e ir ao estado 31
-    T_FOR       deslocar, e ir ao estado 33
-    T_ID        deslocar, e ir ao estado 34
-    T_IF        deslocar, e ir ao estado 35
-    T_MAIS      deslocar, e ir ao estado 36
-    T_MENOS     deslocar, e ir ao estado 37
-    T_NAO       deslocar, e ir ao estado 38
-    T_RETURN    deslocar, e ir ao estado 39
-    T_TIPO      deslocar, e ir ao estado 1
-    T_VOID      deslocar, e ir ao estado 2
-    T_WHILE     deslocar, e ir ao estado 40
+    T_ACOLCH    shift, and go to state 18
+    T_APAREN    shift, and go to state 24
+    T_BREAK     shift, and go to state 25
+    T_BOOL      shift, and go to state 26
+    T_CHAR      shift, and go to state 27
+    T_FLOAT     shift, and go to state 28
+    T_INT       shift, and go to state 29
+    T_CONTINUE  shift, and go to state 30
+    T_DO        shift, and go to state 31
+    T_FOR       shift, and go to state 33
+    T_ID        shift, and go to state 34
+    T_IF        shift, and go to state 35
+    T_MAIS      shift, and go to state 36
+    T_MENOS     shift, and go to state 37
+    T_NAO       shift, and go to state 38
+    T_RETURN    shift, and go to state 39
+    T_TIPO      shift, and go to state 1
+    T_VOID      shift, and go to state 2
+    T_WHILE     shift, and go to state 40
 
-    instrucao        ir ao estado 172
-    instr_decl       ir ao estado 42
-    decl             ir ao estado 8
-    decl_var         ir ao estado 9
-    decl_funcao      ir ao estado 43
-    cmd_composto     ir ao estado 44
-    cmd_selecao      ir ao estado 46
-    cmd_repeticao    ir ao estado 47
-    cmd_for          ir ao estado 48
-    cmd_while        ir ao estado 49
-    cmd_do_while     ir ao estado 50
-    cmd_desvio       ir ao estado 51
-    desvio           ir ao estado 52
-    retorno          ir ao estado 53
-    cmd_expr         ir ao estado 54
-    expr             ir ao estado 55
-    expr_atrib       ir ao estado 56
-    expr_ou          ir ao estado 57
-    expr_e           ir ao estado 58
-    expr_ou_excl     ir ao estado 59
-    expr_igual       ir ao estado 60
-    expr_relac       ir ao estado 61
-    expr_soma        ir ao estado 62
-    expr_mult        ir ao estado 63
-    expr_unaria      ir ao estado 64
-    expr_simpl       ir ao estado 65
-    chamada_funcao   ir ao estado 66
-    oper_unario      ir ao estado 67
-    oper_unario_log  ir ao estado 68
+    instrucao        go to state 172
+    instr_decl       go to state 42
+    decl             go to state 8
+    decl_var         go to state 9
+    decl_funcao      go to state 43
+    cmd_composto     go to state 44
+    cmd_selecao      go to state 46
+    cmd_repeticao    go to state 47
+    cmd_for          go to state 48
+    cmd_while        go to state 49
+    cmd_do_while     go to state 50
+    cmd_desvio       go to state 51
+    desvio           go to state 52
+    retorno          go to state 53
+    cmd_expr         go to state 54
+    expr             go to state 55
+    expr_atrib       go to state 56
+    expr_ou          go to state 57
+    expr_e           go to state 58
+    expr_ou_excl     go to state 59
+    expr_igual       go to state 60
+    expr_relac       go to state 61
+    expr_soma        go to state 62
+    expr_mult        go to state 63
+    expr_unaria      go to state 64
+    expr_simpl       go to state 65
+    chamada_funcao   go to state 66
+    oper_unario      go to state 67
+    oper_unario_log  go to state 68
 
 
-Estado 164
+State 164
 
    46 cmd_do_while: T_DO cmd_composto T_WHILE T_APAREN expr T_FPAREN T_PEV .
 
-    $padrão  reduzir usando a regra 46 (cmd_do_while)
+    $default  reduce using rule 46 (cmd_do_while)
 
 
-Estado 165
+State 165
 
    43 cmd_for: T_FOR T_APAREN T_PEV T_PEV expr T_FPAREN cmd_composto .
 
-    $padrão  reduzir usando a regra 43 (cmd_for)
+    $default  reduce using rule 43 (cmd_for)
 
 
-Estado 166
+State 166
 
    42 cmd_for: T_FOR T_APAREN T_PEV expr T_PEV T_FPAREN cmd_composto .
 
-    $padrão  reduzir usando a regra 42 (cmd_for)
+    $default  reduce using rule 42 (cmd_for)
 
 
-Estado 167
+State 167
 
    41 cmd_for: T_FOR T_APAREN T_PEV expr T_PEV expr T_FPAREN . cmd_composto
 
-    T_ACOLCH  deslocar, e ir ao estado 18
+    T_ACOLCH  shift, and go to state 18
 
-    cmd_composto  ir ao estado 173
+    cmd_composto  go to state 173
 
 
-Estado 168
+State 168
 
    40 cmd_for: T_FOR T_APAREN expr T_PEV T_PEV T_FPAREN cmd_composto .
 
-    $padrão  reduzir usando a regra 40 (cmd_for)
+    $default  reduce using rule 40 (cmd_for)
 
 
-Estado 169
+State 169
 
    39 cmd_for: T_FOR T_APAREN expr T_PEV T_PEV expr T_FPAREN . cmd_composto
 
-    T_ACOLCH  deslocar, e ir ao estado 18
+    T_ACOLCH  shift, and go to state 18
 
-    cmd_composto  ir ao estado 174
+    cmd_composto  go to state 174
 
 
-Estado 170
+State 170
 
    38 cmd_for: T_FOR T_APAREN expr T_PEV expr T_PEV T_FPAREN . cmd_composto
 
-    T_ACOLCH  deslocar, e ir ao estado 18
+    T_ACOLCH  shift, and go to state 18
 
-    cmd_composto  ir ao estado 175
+    cmd_composto  go to state 175
 
 
-Estado 171
+State 171
 
    37 cmd_for: T_FOR T_APAREN expr T_PEV expr T_PEV expr . T_FPAREN cmd_composto
 
-    T_FPAREN  deslocar, e ir ao estado 176
+    T_FPAREN  shift, and go to state 176
 
 
-Estado 172
+State 172
 
    33 cmd_selecao: T_IF T_APAREN expr T_FPAREN instrucao T_ELSE instrucao .
 
-    $padrão  reduzir usando a regra 33 (cmd_selecao)
+    $default  reduce using rule 33 (cmd_selecao)
 
 
-Estado 173
+State 173
 
    41 cmd_for: T_FOR T_APAREN T_PEV expr T_PEV expr T_FPAREN cmd_composto .
 
-    $padrão  reduzir usando a regra 41 (cmd_for)
+    $default  reduce using rule 41 (cmd_for)
 
 
-Estado 174
+State 174
 
    39 cmd_for: T_FOR T_APAREN expr T_PEV T_PEV expr T_FPAREN cmd_composto .
 
-    $padrão  reduzir usando a regra 39 (cmd_for)
+    $default  reduce using rule 39 (cmd_for)
 
 
-Estado 175
+State 175
 
    38 cmd_for: T_FOR T_APAREN expr T_PEV expr T_PEV T_FPAREN cmd_composto .
 
-    $padrão  reduzir usando a regra 38 (cmd_for)
+    $default  reduce using rule 38 (cmd_for)
 
 
-Estado 176
+State 176
 
    37 cmd_for: T_FOR T_APAREN expr T_PEV expr T_PEV expr T_FPAREN . cmd_composto
 
-    T_ACOLCH  deslocar, e ir ao estado 18
+    T_ACOLCH  shift, and go to state 18
 
-    cmd_composto  ir ao estado 177
+    cmd_composto  go to state 177
 
 
-Estado 177
+State 177
 
    37 cmd_for: T_FOR T_APAREN expr T_PEV expr T_PEV expr T_FPAREN cmd_composto .
 
-    $padrão  reduzir usando a regra 37 (cmd_for)
+    $default  reduce using rule 37 (cmd_for)

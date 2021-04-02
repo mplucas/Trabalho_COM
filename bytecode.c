@@ -22,13 +22,13 @@ void finalizarBytecodeFile(){
     fclose(bytecodeFile);
 }
 
-int getIdVariavel(char* nomeVariavel){
+int getVariableId(char* variableName){
 
     for(int i = 0; i < 100; i++){
         
-        if(strlen(variableMap[i]) == 0 || strcmp(variableMap[i], nomeVariavel) == 0){
+        if(strlen(variableMap[i]) == 0 || strcmp(variableMap[i], variableName) == 0){
             
-            strcpy(variableMap[i], nomeVariavel);
+            strcpy(variableMap[i], variableName);
             return i + 1;
 
         }
@@ -49,7 +49,7 @@ void atribuiValorIntParaVariavel(int valorInt, char* nomeVariavel){
 
 
     strcat(bytecodeFileContent, "\nistore ");
-    int idVariavel = getIdVariavel(nomeVariavel);
+    int idVariavel = getVariableId(nomeVariavel);
     sprintf(intStr, "%i", idVariavel);
     strcat(bytecodeFileContent, intStr);
 
@@ -76,7 +76,7 @@ void printaVariavel(char* nomeVariavel){
     strcat(bytecodeFileContent, "\ngetstatic java/lang/System/out Ljava/io/PrintStream;");
 
     strcat(bytecodeFileContent, "\niload ");
-    int idVariavel = getIdVariavel(nomeVariavel);
+    int idVariavel = getVariableId(nomeVariavel);
     sprintf(intStr, "%i", idVariavel);
     strcat(bytecodeFileContent, intStr);
 
@@ -84,6 +84,41 @@ void printaVariavel(char* nomeVariavel){
 
 }
 
-void printaRetorno(){
+void bytecodeReturn(){
     strcat(bytecodeFileContent, "\nreturn");
+}
+
+void pushInt(int intValue){
+    
+    char intStr[12];
+    strcat(bytecodeFileContent, "\nbipush ");
+    sprintf(intStr, "%i", intValue);
+
+}
+
+void storeVariable(char* variableName){
+    
+    char intStr[12];
+    strcat(bytecodeFileContent, "\nistore ");
+    int variableId = getVariableId(variableName);
+    sprintf(intStr, "%i", variableId);
+    strcat(bytecodeFileContent, intStr);   
+
+}
+
+void loadVariable(char* variableName){
+
+    char intStr[12];
+    strcat(bytecodeFileContent, "\niload ");
+    int variableId = getVariableId(variableName);
+    sprintf(intStr, "%i", variableId);
+    strcat(bytecodeFileContent, intStr);
+
+}
+
+void printHeadStack(){
+
+    strcat(bytecodeFileContent, "\ngetstatic java/lang/System/out Ljava/io/PrintStream;");
+    strcat(bytecodeFileContent, "\ninvokevirtual java/io/PrintStream/println(I)V");
+
 }

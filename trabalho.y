@@ -234,7 +234,7 @@ desvio
 	:	T_BREAK 
 	|	T_CONTINUE 
 	|	retorno {
-            printaRetorno();
+            bytecodeReturn();
         }
 	;
 
@@ -372,15 +372,7 @@ expr_simpl
 		}
 	|	chamada_funcao {
             if(strcmp($1, "print_int")){
-                
-                int x = 10;
-                char intStr[12];
-                sprintf(intStr, "%i", x);
-                puts (intStr);
-
-                atribuiValorIntParaVariavel(10, "x");
-                printaVariavel("x");
-                
+                printHeadStack();
             }
         }
 	;
