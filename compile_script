@@ -1,0 +1,4 @@
+#!/bin/bash
+bison -dv trabalho.y
+flex trabalho.lex
+gcc entr.c lex.yy.c bytecode.c lexico.c lista.c sintatico.c tabsimb.c tipo.c trabalho.tab.c -lm -g

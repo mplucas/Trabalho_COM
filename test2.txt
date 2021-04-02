@@ -1,0 +1,45 @@
+int main (void)
+{
+	int x, y, z;
+	float x = true, y = false;
+	
+	while (true || x) {
+		for (i = 0; i < 100; i = i + 1) {
+			for (j = 0; j < 50; j = j + 1) {
+				soma = soma + i * j;
+			}
+			break;
+		}
+	}
+	
+	bool a, b, c = 50;
+	if (a + b != 50) {
+		if (z - y == a || b) {
+			x + 4;
+		}
+		else {
+			x - y % 50 + funcao();
+		}
+	}
+	else {
+		int a, b;
+	}
+	
+	x = funcao1 (x, y, botafogo, 4, a || b);
+	y = soma (4, 2) + mult (7, -4) + div();
+	return (w ^ 4);
+}
+
+int global_int;
+float global_float;
+
+int funcao1 (void);
+bool funcao2 (int x, int y);
+
+char funcao3 (char c, char c4);
+
+char um_char;
+
+bool funcao1 (void) {
+	return (50);
+}
