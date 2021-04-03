@@ -1,7 +1,16 @@
 int main (void)
 {
 	int x = 10;
-    x = 20;
+
+    int y = 30;
+
     print_int(x);
+
+    x = 20;
+
+    print_int(y);
+
+    print_int(x);
+
     return 0;
 }

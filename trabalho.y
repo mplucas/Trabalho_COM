@@ -356,16 +356,19 @@ expr_simpl
 		}
 	|	T_BOOL {
 			puts ("expr_simpl2");
+            pushBool(cte_bool);
 			/* cte_bool */
 			// $$ = yylval.tipo;
 		}
 	|	T_CHAR {
 			puts ("expr_simpl3");
+            pushChar(cte_char);
 			/* cte_char */			
 			// $$ = yylval.tipo;
 		}
 	|	T_FLOAT  {
 			puts ("expr_simpl4");
+            pushFloat(cte_float);
 			/* cte_float */
 			// $$ = yylval.tipo; 
 		}

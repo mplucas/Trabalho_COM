@@ -1,5 +1,6 @@
 #include "bytecode.h"
 #include <string.h>
+#include <stdbool.h>
 
 void inicializarBytecodeFile(){
 
@@ -94,6 +95,37 @@ void pushInt(int intValue){
     strcat(bytecodeFileContent, "\nbipush ");
     sprintf(intStr, "%i", intValue);
     strcat(bytecodeFileContent, intStr);
+
+}
+
+void pushFloat(float floatValue){
+    
+    char floatStr[12];
+    strcat(bytecodeFileContent, "\nldc ");
+    sprintf(floatStr, "%f", floatValue);
+    strcat(bytecodeFileContent, floatStr);
+
+}
+
+void pushChar(char charValue){
+
+    char stringValue[4];
+    stringValue[0] = '\"';
+    stringValue[1] = charValue;
+    stringValue[2] = '\"';
+    stringValue[3] = '\0';
+    
+    strcat(bytecodeFileContent, "\nldc ");
+    strcat(bytecodeFileContent, stringValue);
+
+}
+
+void pushBool(bool boolValue){
+    
+    char boolStr[12];
+    strcat(bytecodeFileContent, "\nbipush ");
+    sprintf(boolStr, "%i", boolValue);
+    strcat(bytecodeFileContent, boolStr);
 
 }
 
