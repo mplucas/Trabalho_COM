@@ -178,6 +178,7 @@ inic
 	|	T_ID T_ATRIB expr {
 			puts ("inic2");
 			inic ($1, $3);
+            storeVariable($1);
 		}
 	;
 
@@ -256,6 +257,8 @@ expr_atrib
 			
 			puts ("expr_atrib1");
 			$$ = expr_atrib ($1, $3);
+            puts ("expr_atrib1_2");
+            storeVariable($1);
 		}
 	|	expr_ou
 	;
@@ -369,14 +372,17 @@ expr_simpl
 	|	T_ID {
 			puts ("expr_simpl5");
 			$$ = expr_simpl_r5 ($1);
+            puts ("expr_simpl5_2");
+            loadVariable($1);
 		}
 	|	T_INT {
 			puts ("expr_simpl6");
+            pushInt(cte_int);
 			/* cte_int */
 			// $$ = yylval.tipo;
 		}
 	|	chamada_funcao {
-            if (strcmp (id_func_chamada, "print_int") /* == 0?? */){
+            if (strcmp (id_func_chamada, "print_int") == 0){
                 printHeadStack();                
             }
         }

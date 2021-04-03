@@ -93,6 +93,7 @@ void pushInt(int intValue){
     char intStr[12];
     strcat(bytecodeFileContent, "\nbipush ");
     sprintf(intStr, "%i", intValue);
+    strcat(bytecodeFileContent, intStr);
 
 }
 
@@ -116,9 +117,40 @@ void loadVariable(char* variableName){
 
 }
 
+int lastIndexOfCharInString(char searched, char* string){
+
+    int size = strlen(string);
+
+    for(int i = size - 1; i >= 0; i--){
+        if(string[i] == searched){
+            return i;
+        }
+    }
+
+    return -1;
+
+}
+
+void substring(char s[], char sub[], int p, int l) {
+   
+   int c = 0;
+   
+   while (c < l) {
+      sub[c] = s[p+c];
+      c++;
+   }
+   sub[c] = '\0';
+
+}
+
 void printHeadStack(){
 
+    char lastLoadCommand[100];
+    int lastIndexOfCommand = lastIndexOfCharInString('\n', bytecodeFileContent);
+    substring(bytecodeFileContent, lastLoadCommand, lastIndexOfCommand, strlen(bytecodeFileContent) - lastIndexOfCommand + 1);
+
     strcat(bytecodeFileContent, "\ngetstatic java/lang/System/out Ljava/io/PrintStream;");
+    strcat(bytecodeFileContent, lastLoadCommand);
     strcat(bytecodeFileContent, "\ninvokevirtual java/io/PrintStream/println(I)V");
 
 }

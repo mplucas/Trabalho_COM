@@ -554,14 +554,14 @@ static const yytype_int16 yyrline[] =
 {
        0,   109,   109,   115,   116,   120,   121,   125,   129,   130,
      134,   138,   139,   140,   141,   142,   143,   147,   151,   152,
-     156,   163,   167,   174,   178,   185,   186,   187,   188,   192,
-     193,   197,   198,   202,   203,   207,   207,   207,   211,   212,
-     213,   214,   215,   216,   217,   218,   222,   226,   230,   234,
-     235,   236,   242,   243,   247,   251,   255,   259,   263,   267,
-     271,   275,   279,   283,   287,   288,   289,   293,   297,   301,
-     305,   309,   313,   317,   321,   325,   329,   333,   337,   341,
-     345,   349,   353,   357,   361,   365,   369,   373,   389,   393,
-     400,   404,   411,   412,   413,   416,   417
+     156,   163,   167,   174,   178,   186,   187,   188,   189,   193,
+     194,   198,   199,   203,   204,   208,   208,   208,   212,   213,
+     214,   215,   216,   217,   218,   219,   223,   227,   231,   235,
+     236,   237,   243,   244,   248,   252,   256,   263,   267,   271,
+     275,   279,   283,   287,   291,   292,   293,   297,   301,   305,
+     309,   313,   317,   321,   325,   329,   333,   337,   341,   345,
+     349,   353,   357,   362,   367,   372,   378,   384,   392,   396,
+     403,   407,   414,   415,   416,   419,   420
 };
 #endif
 
@@ -1556,254 +1556,257 @@ yyreduce:
                                   {
 			puts ("inic2");
 			inic ((yyvsp[-2].id), (yyvsp[0].tipo));
+            storeVariable((yyvsp[-2].id));
 		}
-#line 1561 "trabalho.tab.c"
+#line 1562 "trabalho.tab.c"
     break;
 
   case 51:
-#line 236 "trabalho.y"
+#line 237 "trabalho.y"
                         {
             bytecodeReturn();
         }
-#line 1569 "trabalho.tab.c"
+#line 1570 "trabalho.tab.c"
     break;
 
   case 56:
-#line 255 "trabalho.y"
+#line 256 "trabalho.y"
                                         {
+			
 			puts ("expr_atrib1");
 			(yyval.tipo) = expr_atrib ((yyvsp[-2].id), (yyvsp[0].tipo));
+            puts ("expr_atrib1_2");
+            storeVariable((yyvsp[-2].id));
 		}
-#line 1578 "trabalho.tab.c"
+#line 1582 "trabalho.tab.c"
     break;
 
   case 58:
-#line 263 "trabalho.y"
+#line 267 "trabalho.y"
                                         {
 			puts ("expr_ou");
 			(yyval.tipo) = expr_ou ((yyvsp[-2].tipo), (yyvsp[0].tipo)); 
 		}
-#line 1587 "trabalho.tab.c"
+#line 1591 "trabalho.tab.c"
     break;
 
   case 60:
-#line 271 "trabalho.y"
+#line 275 "trabalho.y"
                                         {
 			puts ("expr_e");
 			(yyval.tipo) = expr_e ((yyvsp[-2].tipo), (yyvsp[0].tipo)); 
 		}
-#line 1596 "trabalho.tab.c"
+#line 1600 "trabalho.tab.c"
     break;
 
   case 62:
-#line 279 "trabalho.y"
+#line 283 "trabalho.y"
                                                   {
 			puts ("expr_ou_excl");
 			(yyval.tipo) = expr_ou_excl ((yyvsp[-2].tipo), (yyvsp[0].tipo)); 
 		}
-#line 1605 "trabalho.tab.c"
+#line 1609 "trabalho.tab.c"
     break;
 
   case 67:
-#line 293 "trabalho.y"
+#line 297 "trabalho.y"
                                              {
 			puts ("expr_relac1");
 			(yyval.tipo) = expr_relac ((yyvsp[-1].token), (yyvsp[-2].tipo), (yyvsp[0].tipo)); 
 		}
-#line 1614 "trabalho.tab.c"
+#line 1618 "trabalho.tab.c"
     break;
 
   case 68:
-#line 297 "trabalho.y"
+#line 301 "trabalho.y"
                                              {
 			puts ("expr_relac2");
 			(yyval.tipo) = expr_relac ((yyvsp[-1].token), (yyvsp[-2].tipo), (yyvsp[0].tipo));
 		}
-#line 1623 "trabalho.tab.c"
+#line 1627 "trabalho.tab.c"
     break;
 
   case 69:
-#line 301 "trabalho.y"
+#line 305 "trabalho.y"
                                                    {
 			puts ("expr_relac3");
 			(yyval.tipo) = expr_relac ((yyvsp[-1].token), (yyvsp[-2].tipo), (yyvsp[0].tipo));
 		}
-#line 1632 "trabalho.tab.c"
+#line 1636 "trabalho.tab.c"
     break;
 
   case 70:
-#line 305 "trabalho.y"
+#line 309 "trabalho.y"
                                                    {
 			puts ("expr_relac4");
 			(yyval.tipo) = expr_relac ((yyvsp[-1].token), (yyvsp[-2].tipo), (yyvsp[0].tipo)); 
 		}
-#line 1641 "trabalho.tab.c"
+#line 1645 "trabalho.tab.c"
     break;
 
   case 72:
-#line 313 "trabalho.y"
+#line 317 "trabalho.y"
                                            {
 			puts ("expr_soma1");
 			(yyval.tipo) = expr_soma ((yyvsp[-1].token), (yyvsp[-2].tipo), (yyvsp[0].tipo)); 
 		}
-#line 1650 "trabalho.tab.c"
+#line 1654 "trabalho.tab.c"
     break;
 
   case 73:
-#line 317 "trabalho.y"
+#line 321 "trabalho.y"
                                                 {
 			puts ("expr_soma2");
 			(yyval.tipo) = expr_soma ((yyvsp[-1].token), (yyvsp[-2].tipo), (yyvsp[0].tipo)); 
 		}
-#line 1659 "trabalho.tab.c"
+#line 1663 "trabalho.tab.c"
     break;
 
   case 75:
-#line 325 "trabalho.y"
+#line 329 "trabalho.y"
                                              {
 			puts ("expr_mult1");
 			(yyval.tipo) = expr_mult ((yyvsp[-1].token), (yyvsp[-2].tipo), (yyvsp[0].tipo));
 		}
-#line 1668 "trabalho.tab.c"
+#line 1672 "trabalho.tab.c"
     break;
 
   case 76:
-#line 329 "trabalho.y"
+#line 333 "trabalho.y"
                                            {
 			puts ("expr_mult2");
 			(yyval.tipo) = expr_mult ((yyvsp[-1].token), (yyvsp[-2].tipo), (yyvsp[0].tipo));
 		}
-#line 1677 "trabalho.tab.c"
+#line 1681 "trabalho.tab.c"
     break;
 
   case 77:
-#line 333 "trabalho.y"
+#line 337 "trabalho.y"
                                              {
 			puts ("expr_mult3");
 			(yyval.tipo) = expr_mult ((yyvsp[-1].token), (yyvsp[-2].tipo), (yyvsp[0].tipo));
 		}
-#line 1686 "trabalho.tab.c"
+#line 1690 "trabalho.tab.c"
     break;
 
   case 79:
-#line 341 "trabalho.y"
+#line 345 "trabalho.y"
                                        {
 			puts ("expr_unaria1");
 			(yyval.tipo) = expr_unaria ((yyvsp[-1].token), (yyvsp[0].tipo));
 		}
-#line 1695 "trabalho.tab.c"
+#line 1699 "trabalho.tab.c"
     break;
 
   case 81:
-#line 349 "trabalho.y"
+#line 353 "trabalho.y"
                                        {
 			puts ("expr_simpl1");
 			(yyval.tipo) = (yyvsp[-1].tipo);
 		}
-#line 1704 "trabalho.tab.c"
+#line 1708 "trabalho.tab.c"
     break;
 
   case 82:
-#line 353 "trabalho.y"
+#line 357 "trabalho.y"
                        {
 			puts ("expr_simpl2");
-			(yyval.tipo) = yylval.tipo;
+			/* cte_bool */
+			// $$ = yylval.tipo;
 		}
-#line 1713 "trabalho.tab.c"
+#line 1718 "trabalho.tab.c"
     break;
 
   case 83:
-#line 357 "trabalho.y"
+#line 362 "trabalho.y"
                        {
 			puts ("expr_simpl3");
-			(yyval.tipo) = yylval.tipo;
+			/* cte_char */			
+			// $$ = yylval.tipo;
 		}
-#line 1722 "trabalho.tab.c"
+#line 1728 "trabalho.tab.c"
     break;
 
   case 84:
-#line 361 "trabalho.y"
+#line 367 "trabalho.y"
                          {
 			puts ("expr_simpl4");
-			(yyval.tipo) = yylval.tipo; 
+			/* cte_float */
+			// $$ = yylval.tipo; 
 		}
-#line 1731 "trabalho.tab.c"
+#line 1738 "trabalho.tab.c"
     break;
 
   case 85:
-#line 365 "trabalho.y"
+#line 372 "trabalho.y"
                      {
 			puts ("expr_simpl5");
 			(yyval.tipo) = expr_simpl_r5 ((yyvsp[0].id));
-		}
-#line 1740 "trabalho.tab.c"
-    break;
-
-  case 86:
-#line 369 "trabalho.y"
-                      {
-			puts ("expr_simpl6");
-			(yyval.tipo) = yylval.tipo;
+            puts ("expr_simpl5_2");
+            loadVariable((yyvsp[0].id));
 		}
 #line 1749 "trabalho.tab.c"
     break;
 
-  case 87:
-#line 373 "trabalho.y"
-                               {
-            if(strcmp((yyvsp[0].tipo), "print_int")){
-                
-                int x = 10;
-                char intStr[12];
-                sprintf(intStr, "%i", x);
-                puts (intStr);
+  case 86:
+#line 378 "trabalho.y"
+                      {
+			puts ("expr_simpl6");
+            pushInt(cte_int);
+			/* cte_int */
+			// $$ = yylval.tipo;
+		}
+#line 1760 "trabalho.tab.c"
+    break;
 
-                atribuiValorIntParaVariavel(10, "x");
-                printaVariavel("x");
-                
+  case 87:
+#line 384 "trabalho.y"
+                               {
+            if (strcmp (id_func_chamada, "print_int") == 0){
+                printHeadStack();                
             }
         }
-#line 1767 "trabalho.tab.c"
+#line 1770 "trabalho.tab.c"
     break;
 
   case 88:
-#line 389 "trabalho.y"
+#line 392 "trabalho.y"
                                                  {
 			puts ("chamada_funcao1");
 			(yyval.tipo) = chamada_funcao ((yyvsp[-3].id));
 		}
-#line 1776 "trabalho.tab.c"
+#line 1779 "trabalho.tab.c"
     break;
 
   case 89:
-#line 393 "trabalho.y"
+#line 396 "trabalho.y"
                                        {
 			puts ("chamada_funcao2");
 			(yyval.tipo) = chamada_funcao ((yyvsp[-2].id)); 
 		}
-#line 1785 "trabalho.tab.c"
+#line 1788 "trabalho.tab.c"
     break;
 
   case 90:
-#line 400 "trabalho.y"
+#line 403 "trabalho.y"
                                       {
 			puts ("lista_arg1");
 			lista_arg ((yyvsp[0].tipo));
 		}
-#line 1794 "trabalho.tab.c"
+#line 1797 "trabalho.tab.c"
     break;
 
   case 91:
-#line 404 "trabalho.y"
+#line 407 "trabalho.y"
                      {
 			puts ("lista_arg2");
 			lista_arg ((yyvsp[0].tipo));
 		}
-#line 1803 "trabalho.tab.c"
+#line 1806 "trabalho.tab.c"
     break;
 
 
-#line 1807 "trabalho.tab.c"
+#line 1810 "trabalho.tab.c"
 
       default: break;
     }
@@ -2035,7 +2038,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 420 "trabalho.y"
+#line 423 "trabalho.y"
 
 
 /* ============================================================ */
