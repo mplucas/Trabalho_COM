@@ -1,11 +1,11 @@
 ======================================================================
-INFORMACOES BASICAS DO ARQUIVO.
+# INFORMACOES BASICAS DO ARQUIVO.
 ======================================================================
 
-DESCRICAO: Trabalho de implementação de um compilador. Referente a
+## DESCRICAO: Trabalho de implementação de um compilador. Referente a
 disciplina de Compiladores da UDESC-CCT.
 
-Alunos: Rafael Boeger e Lucas Meneghelli Pereira
+###### Alunos: Rafael Boeger e Lucas Meneghelli Pereira
 
 Apresenta a estruturacao dos arquivos que implementam o
 compilador de uma linguagem semelhante a C e as caracteristicas dessa
@@ -13,136 +13,136 @@ linguagem.
 CRIADO EM: 27 mar. 2021.
 
 ======================================================================
-REGRAS DA LINGUAGEM
+## REGRAS DA LINGUAGEM
 ======================================================================
 
-Estas sao algumas regras basicas da linguagem:
+###### Estas sao algumas regras basicas da linguagem:
 
---- Toda funcao deve ser declarada ou definida antes de ser utilizada.
---- Toda variavel deve ser definida antes de ser utilizada.
---- Nao e possivel apenas declarar uma variavel.
---- Toda definicao ou declaracao de funcao sem argumentos deve
+- Toda funcao deve ser declarada ou definida antes de ser utilizada.
+- Toda variavel deve ser definida antes de ser utilizada.
+- Nao e possivel apenas declarar uma variavel.
+- Toda definicao ou declaracao de funcao sem argumentos deve
 	utilizar a palavra-chave void, sozinha, no lugar da lista de
 	parametros. Uma chamada de funcao, porem, pode utilizar parenteses
 	vazios.
---- As condicoes logicas dos comandos condicionais (if) e de repeticao
+- As condicoes logicas dos comandos condicionais (if) e de repeticao
 	(for, while e do-while) devem ser aceitas para que os comandos 	
 	associados a essas estruturas sejam executados (óbvio!). O retorno
  	das condicoes logicas deve possuir tipo bool. Retornos de outros
  	tipos (inteiro, p. ex.) constituem um erro semantico.
---- A linguagem possui apenas cinco tipos: bool, char, int, float e
+- A linguagem possui apenas cinco tipos: bool, char, int, float e
 	void.
---- As unicas conversoes de tipo aceitas sao de int para float e de
+- As unicas conversoes de tipo aceitas sao de int para float e de
 	float para int. Essas conversoes sao automaticas.
---- Operacoes aritmeticas exigem operandos de tipos aritmeticos.
+- Operacoes aritmeticas exigem operandos de tipos aritmeticos.
 	Operacoes booleanas exigem operandos booleanos. Operacoes 
 	relacionais exigem operandos aritmeticos. As unicas operacoes
 	que podem ser realizadas com caracteres sao comparacoes de
 	igualdade e diferenca.
---- Variaveis podem ser inicializadas ja na sua definicao. Alem disso,
+- Variaveis podem ser inicializadas ja na sua definicao. Alem disso,
 	pode-se usar listas de inicializacao, como int a = 1, b = 2, c;.
 
 ======================================================================
-ARQUIVOS
+# ARQUIVOS
 ======================================================================
 
 ----------------------------------------------------------------------
-ANALISE LEXICA
+## ANALISE LEXICA
 ----------------------------------------------------------------------
 
----	trabalho.lex: arquivo do Flex que implementa o analisador lexico do
+- trabalho.lex: arquivo do Flex que implementa o analisador lexico do
 	compilador.
 	
---- lexico.c: a terceira secao de um arquivo do Flex e dedicada as
+- lexico.c: a terceira secao de um arquivo do Flex e dedicada as
 	funcoes que o programador utiliza para implementar o analisador
 	lexico. A fim de evitar tornar muito grande o arquivo trabalho.lex
 	as funcoes desenvolvidas para o analisador lexico foram colocadas
 	no arquivo lexico.c.
 	
---- lexico.h: a primeira secao de um arquivo do Flex e dedicada as
+- lexico.h: a primeira secao de um arquivo do Flex e dedicada as
 	inclusoes e definicoes ou declaracoes de variaveis globais e 
 	funcoes. Esses elementos foram colocados no arquivo lexico.h para
 	evitar que o arquivo trabalho.lex se tornasse demasiadamente grande.
 	
 ----------------------------------------------------------------------
-ANALISE SINTATICA, ANALISE SEMANTICA E GERACAO DE CODIGO INTERMEDIARIO
+## ANALISE SINTATICA, ANALISE SEMANTICA E GERACAO DE CODIGO INTERMEDIARIO
 ----------------------------------------------------------------------
 
---- trabalho.y: arquivo do Bison que implementa o analisador sintatico
+- trabalho.y: arquivo do Bison que implementa o analisador sintatico
 	do compilador. Como a tecnica de "traducao dirigida pela sintaxe" e
 	utilizada no compilador, esse arquivo tambem especifica as acoes de
 	analise semantica e geracao de codigo intermediario que devem ser
 	executadas apos o reconhecimento de uma regra de producao.
 	
---- sintatico.c: a terceira secao de um arquivo do Bison e destinado as
+- sintatico.c: a terceira secao de um arquivo do Bison e destinado as
 	funcoes que o programador utiliza para implementar as analises
 	sintatica e semantica e a geracao de codigo intermediario. Essas
 	funcoes foram colocadas no arquivo sintatico.c para evitar que o
 	arquivo trabalho.y se tornasse demasiadamente grande.
 	
---- sintatico.h: a primeira secao de um arquivo do Bison e destinada
+- sintatico.h: a primeira secao de um arquivo do Bison e destinada
 	as inclues e declaracoes ou definicoes de variaveis globais e 
 	funcoes. Essas declaracoes e funcoes foram colocadas no arquivo
 	sintatico.h para evitar tornar o arquivo trabalho.y demasiadamente
 	extenso.
 
 ----------------------------------------------------------------------
-TABELA DE SIMBOLOS
+## TABELA DE SIMBOLOS
 ----------------------------------------------------------------------
 
---- tabsimb.c: contem as funcoes que operam sobre a tabela de simbolos 
+- tabsimb.c: contem as funcoes que operam sobre a tabela de simbolos 
 	e a variavel que representa a propria tabela de simbolos do
 	compilador. 
 	A tabela de simbolos foi desenvolvida de modo que o usuario nao 
 	precise conhecer sua representacao interna para que possa
 	utiliza-la. Basta que ele use as essas funcoes.
 
---- tabsimb.h: contem as assinaturas das funcoes do arquivo tabsimb.c
+- tabsimb.h: contem as assinaturas das funcoes do arquivo tabsimb.c
 	e do arquivo tipo.c.
 
---- tabsimb-defs.h: contem as definicoes dos tipos de dados que
+- tabsimb-defs.h: contem as definicoes dos tipos de dados que
 	implementam a tabela de simbolos, as entradas da tabela de simbolos
 	e os tipos de dados da linguagem.
 
---- entr.c: contem as funcoes que proporcionam as operacoes sobre as
+- entr.c: contem as funcoes que proporcionam as operacoes sobre as
 	entradas da tabela de simbolos.
 
---- entr.h: contem as assinaturas das funcoes do arquivo entr.c. Assim
+- entr.h: contem as assinaturas das funcoes do arquivo entr.c. Assim
 	como a tabela de simbolos, o usuario nao precisa conhecer a
 	representa interna de uma entrada da tabela de simbolos para que
 	possa operar sobre as entradas. Basta que ele utilize essas
 	funcoes.
 
---- tipo.c: a implementacao do compilador define um tipo de dados que
+- tipo.c: a implementacao do compilador define um tipo de dados que
 	representa os tipos de dados da linguagem. O objetivo dessa escolha
 	e permitir que todas as referencias ao tipos de dados da linguagem
 	se refiram ao mesmo objeto. O arquivo tipo.c contem as funcoes que
 	manipulam esse tipo de dados.
 
 ----------------------------------------------------------------------
-ESTRUTURAS DE DADOS GENERICAS
+## ESTRUTURAS DE DADOS GENERICAS
 ----------------------------------------------------------------------
 
---- lista.c: contem as funcoes que operam sobre uma lista simplesmente
+- lista.c: contem as funcoes que operam sobre uma lista simplesmente
 	encadeda.
 
---- lista.h: contem as assinaturas das funcoes do arquivo lista.c
+- lista.h: contem as assinaturas das funcoes do arquivo lista.c
 
---- lista-defs.h: contem as definicoes dos tipos de dados que
+- lista-defs.h: contem as definicoes dos tipos de dados que
 	implementa a lista simplesmente encadeada.
 
 ----------------------------------------------------------------------
-OUTROS ARQUIVOS
+## OUTROS ARQUIVOS
 ----------------------------------------------------------------------
 
---- script: e o arquivo que deve ser executado no terminal para gerar
+- script: e o arquivo que deve ser executado no terminal para gerar
 	o arquivo a.out, que executa o compilador. 
 
---- arquivo.txt: um arquivo com um trecho de codigo da linguagem correto
+- arquivo.txt: um arquivo com um trecho de codigo da linguagem correto
 	dos pontos de vista lexico e sintatico, mas nao semantico. 
 
 ======================================================================
-PARA RODAR O TESTE DE CASO PEDIDO NO T2
+## PARA RODAR O TESTE DE CASO PEDIDO NO T2
 ======================================================================
 
 Enunciado do T2:
@@ -158,7 +158,7 @@ Nesse caso, adotamos a sugestão 1 e 2, portanto estão concluídos os
 comandos de atribuição e print_int()
 
 
-Para testar
+## Passo a passo para testar
 ---------------------------------------------------------------------
 - Alterar o arquivo compile_script para executável e executar:
 ./compile_script
