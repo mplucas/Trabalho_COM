@@ -1,3 +1,6 @@
 *.out
 *.class
 *.j
+trabalho.output
+trabalho.tab.c
+trabalho.tab.h
