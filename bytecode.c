@@ -175,7 +175,18 @@ void substring(char s[], char sub[], int p, int l) {
 
 }
 
-void printHeadStack(){
+void printHeadStack(char printType){
+
+    if(printType != 'C' && printType != 'F'){
+        printType = 'I';
+    }
+
+    char printTypeStr[100] = "\0";
+    printTypeStr[0] = printType;
+
+    if(printType == 'C'){
+        strcpy(printTypeStr, "Ljava/lang/String;");
+    }
 
     char lastLoadCommand[100];
     int lastIndexOfCommand = lastIndexOfCharInString('\n', bytecodeFileContent);
@@ -183,6 +194,8 @@ void printHeadStack(){
 
     strcat(bytecodeFileContent, "\ngetstatic java/lang/System/out Ljava/io/PrintStream;");
     strcat(bytecodeFileContent, lastLoadCommand);
-    strcat(bytecodeFileContent, "\ninvokevirtual java/io/PrintStream/println(I)V");
+    strcat(bytecodeFileContent, "\ninvokevirtual java/io/PrintStream/println(");
+    strcat(bytecodeFileContent, printTypeStr);
+    strcat(bytecodeFileContent, ")V");
 
 }

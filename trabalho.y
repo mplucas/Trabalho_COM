@@ -386,7 +386,13 @@ expr_simpl
 		}
 	|	chamada_funcao {
             if (strcmp (id_func_chamada, "print_int") == 0){
-                printHeadStack();                
+                printHeadStack('I');
+            } else if (strcmp (id_func_chamada, "print_char") == 0){
+                printHeadStack('C');
+            } else if (strcmp (id_func_chamada, "print_float") == 0){
+                printHeadStack('F');
+            } else if (strcmp (id_func_chamada, "print_bool") == 0){
+                printHeadStack('B');
             }
         }
 	;

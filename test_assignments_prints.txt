@@ -6,16 +6,16 @@ int main (void)
 
     float y = 10.3;
     y = 23.7;
-    print_int(y);
+    print_float(y);
 
     char z = 'a';
     z = 'b';
-    print_int(z);
+    print_char(z);
 
     bool w = false;
-    print_int(w);
+    print_bool(w);
     w = true;
-    print_int(w);
+    print_bool(w);
 
     return 0;
 }

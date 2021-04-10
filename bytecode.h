@@ -17,4 +17,4 @@ void pushChar(char charValue);
 void pushBool(bool boolValue);
 void storeVariable(char* variableName);
 void loadVariable(char* variableName);
-void printHeadStack();
+void printHeadStack(char printType);
