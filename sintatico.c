@@ -40,6 +40,28 @@ void comp_inicializar (void)
 	tab_atrib_tipo (id_print_int, tipo_obter ("void"));
 	tab_inserir_param (id_print_int, tipo_obter ("int")); 
 	tab_definir (id_print_int);
+
+    char *id_print_float = "print_float";
+	tab_criar_entr (id_print_float);
+	tab_atrib_tipo_entr (id_print_float, ENTR_FUNC);
+	tab_atrib_tipo (id_print_float, tipo_obter ("void"));
+	tab_inserir_param (id_print_float, tipo_obter ("float")); 
+	tab_definir (id_print_float);
+
+    char *id_print_char = "print_char";
+	tab_criar_entr (id_print_char);
+	tab_atrib_tipo_entr (id_print_char, ENTR_FUNC);
+	tab_atrib_tipo (id_print_char, tipo_obter ("void"));
+	tab_inserir_param (id_print_char, tipo_obter ("char")); 
+	tab_definir (id_print_char);
+
+    char *id_print_bool = "print_bool";
+	tab_criar_entr (id_print_bool);
+	tab_atrib_tipo_entr (id_print_bool, ENTR_FUNC);
+	tab_atrib_tipo (id_print_bool, tipo_obter ("void"));
+	tab_inserir_param (id_print_bool, tipo_obter ("bool")); 
+	tab_definir (id_print_bool);
+    
 	
 	char *id_scan_int = "scan_int";
 	tab_criar_entr (id_scan_int);

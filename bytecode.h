@@ -1,9 +1,12 @@
-# include <stdio.h>
-# include <stdbool.h>
+#include "lista.h"
+#include <stdio.h>
+#include <stdbool.h>
 
 // Conteúdo do arquivo de bytecode
 char bytecodeFileContent[100000];
 char variableMap[100][100];
+char variableTypes[100];
+char lastTypeUsed;
 
 void inicializarBytecodeFile();
 void finalizarBytecodeFile();
@@ -15,6 +18,8 @@ void pushInt(int intValue);
 void pushFloat(float floatValue);
 void pushChar(char charValue);
 void pushBool(bool boolValue);
+void saveTypeToVariables(char variableType, lista_t *inics);
 void storeVariable(char* variableName);
 void loadVariable(char* variableName);
-void printHeadStack();
+void printHeadStack(char printType);
+void setLastTypeUsed(char type);

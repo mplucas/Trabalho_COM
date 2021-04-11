@@ -39,7 +39,7 @@ int acao_lexica (int token)
 			break;
 		
 		case T_CHAR:	
-			cte_char = yytext[0];
+			cte_char = yytext[1];
 			yylval.tipo = tipo_obter ("char"); 	
 			break;
 		
