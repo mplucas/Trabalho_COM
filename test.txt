@@ -1,16 +1,7 @@
 int main (void)
 {
-	float x = 10.5 * 2.0;
-    print_float(x);
-
-    x = x * 3.0;
-    print_float(x);
-
-    int y = 20 * 10;
-    print_int(y);
-
-    y = y * 2;
-    print_int(y);
+	int x = 14 % 5;
+    print_int(x);
 
     return 0;
 }

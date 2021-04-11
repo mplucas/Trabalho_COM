@@ -27,3 +27,4 @@ void bytecodeAdd();
 void bytecodeSub();
 void bytecodeMul();
 void bytecodeDiv();
+void bytecodeRest();

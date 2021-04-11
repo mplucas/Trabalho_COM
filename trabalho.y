@@ -350,6 +350,7 @@ expr_mult
 	|	expr_mult T_RESTO expr_simpl {
 			puts ("expr_mult3");
 			$$ = expr_mult (T_RESTO, $1, $3);
+            bytecodeRest();
 		}
 	|	expr_unaria
 	;

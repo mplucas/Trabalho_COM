@@ -299,7 +299,6 @@ void bytecodeSub()
     }
 }
 
-
 void bytecodeMul()
 {
     switch (lastUsedType)
@@ -314,7 +313,6 @@ void bytecodeMul()
     }
 }
 
-
 void bytecodeDiv()
 {
     switch (lastUsedType)
@@ -327,4 +325,43 @@ void bytecodeDiv()
         strcat(bytecodeFileContent, "\nidiv");
         break;
     }
+}
+
+void bytecodeNeg()
+{
+    switch (lastUsedType)
+    {
+    case 'F':
+        strcat(bytecodeFileContent, "\nfneg");
+        break;
+
+    default:
+        strcat(bytecodeFileContent, "\nineg");
+        break;
+    }
+}
+
+void bytecodeRest()
+{
+    char lastLoadCommand[100];
+    int lastIndexOfCommand = lastIndexOfCharInString('\n', bytecodeFileContent);
+    substring(bytecodeFileContent, lastLoadCommand, lastIndexOfCommand, strlen(bytecodeFileContent) - lastIndexOfCommand + 1);
+
+    char bytecodeFileContentWithoutLastCommand[100000];
+    substring(bytecodeFileContent, bytecodeFileContentWithoutLastCommand, 0, lastIndexOfCommand);
+    char penultimateLoadCommand[100];
+    int penultimateIndexOfCommand = lastIndexOfCharInString('\n', bytecodeFileContentWithoutLastCommand);
+    substring(bytecodeFileContentWithoutLastCommand, penultimateLoadCommand, penultimateIndexOfCommand, strlen(bytecodeFileContentWithoutLastCommand) - penultimateIndexOfCommand + 1);
+
+    bytecodeDiv();
+
+    strcat(bytecodeFileContent, lastLoadCommand);
+
+    bytecodeMul();
+
+    strcat(bytecodeFileContent, penultimateLoadCommand);
+
+    bytecodeSub();
+
+    bytecodeNeg();
 }
