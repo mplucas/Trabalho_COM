@@ -331,6 +331,7 @@ expr_soma
 	|	expr_soma T_MENOS expr_mult	{
 			puts ("expr_soma2");
 			$$ = expr_soma (T_MENOS, $1, $3); 
+            bytecodeSub();
 		}
 	|	expr_mult						
 	;
@@ -339,10 +340,12 @@ expr_mult
 	:	expr_mult T_VEZES expr_simpl {
 			puts ("expr_mult1");
 			$$ = expr_mult (T_VEZES, $1, $3);
+            bytecodeMul();
 		}
 	|	expr_mult T_DIV expr_simpl {
 			puts ("expr_mult2");
 			$$ = expr_mult (T_DIV, $1, $3);
+            bytecodeDiv();
 		}
 	|	expr_mult T_RESTO expr_simpl {
 			puts ("expr_mult3");

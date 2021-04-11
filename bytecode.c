@@ -273,7 +273,6 @@ void setLastUsedType(char type)
 
 void bytecodeAdd()
 {
-
     switch (lastUsedType)
     {
     case 'F':
@@ -282,6 +281,50 @@ void bytecodeAdd()
 
     default:
         strcat(bytecodeFileContent, "\niadd");
+        break;
+    }
+}
+
+void bytecodeSub()
+{
+    switch (lastUsedType)
+    {
+    case 'F':
+        strcat(bytecodeFileContent, "\nfsub");
+        break;
+
+    default:
+        strcat(bytecodeFileContent, "\nisub");
+        break;
+    }
+}
+
+
+void bytecodeMul()
+{
+    switch (lastUsedType)
+    {
+    case 'F':
+        strcat(bytecodeFileContent, "\nfmul");
+        break;
+
+    default:
+        strcat(bytecodeFileContent, "\nimul");
+        break;
+    }
+}
+
+
+void bytecodeDiv()
+{
+    switch (lastUsedType)
+    {
+    case 'F':
+        strcat(bytecodeFileContent, "\nfdiv");
+        break;
+
+    default:
+        strcat(bytecodeFileContent, "\nidiv");
         break;
     }
 }

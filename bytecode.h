@@ -24,3 +24,6 @@ void loadVariable(char *variableName);
 void printHeadStack(char printType);
 void setLastUsedType(char type);
 void bytecodeAdd();
+void bytecodeSub();
+void bytecodeMul();
+void bytecodeDiv();
