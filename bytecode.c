@@ -4,7 +4,6 @@
 
 void inicializarBytecodeFile()
 {
-
     strcpy(bytecodeFileContent, ".class public java_class\n.super java/lang/Object\n\n.method public <init>()V\naload_0\ninvokenonvirtual java/lang/Object/<init>()V\nreturn\n.end method\n\n.method public static main([Ljava/lang/String;)V\n.limit locals 100\n.limit stack 100\n.line 1\n");
 
     for (int i = 0; i < 100; i++)
@@ -16,7 +15,6 @@ void inicializarBytecodeFile()
 
 void finalizarBytecodeFile()
 {
-
     strcat(bytecodeFileContent, "\n.end method");
 
     FILE *bytecodeFile = fopen("java_bytecode.j", "w");
@@ -28,13 +26,10 @@ void finalizarBytecodeFile()
 
 int getVariableId(char *variableName)
 {
-
     for (int i = 0; i < 100; i++)
     {
-
         if (strlen(variableMap[i]) == 0 || strcmp(variableMap[i], variableName) == 0)
         {
-
             strcpy(variableMap[i], variableName);
             return i + 1;
         }
@@ -45,7 +40,6 @@ int getVariableId(char *variableName)
 
 void atribuiValorIntParaVariavel(int valorInt, char *nomeVariavel)
 {
-
     char intStr[12];
 
     strcat(bytecodeFileContent, "\nbipush ");
@@ -60,7 +54,6 @@ void atribuiValorIntParaVariavel(int valorInt, char *nomeVariavel)
 
 void printaInt(int valorInt)
 {
-
     char intStr[12];
 
     strcat(bytecodeFileContent, "\ngetstatic java/lang/System/out Ljava/io/PrintStream;");
@@ -74,7 +67,6 @@ void printaInt(int valorInt)
 
 void printaVariavel(char *nomeVariavel)
 {
-
     char intStr[12];
 
     strcat(bytecodeFileContent, "\ngetstatic java/lang/System/out Ljava/io/PrintStream;");
@@ -94,7 +86,6 @@ void bytecodeReturn()
 
 void pushInt(int intValue)
 {
-
     char intStr[12];
     strcat(bytecodeFileContent, "\nbipush ");
     sprintf(intStr, "%i", intValue);
@@ -103,7 +94,6 @@ void pushInt(int intValue)
 
 void pushFloat(float floatValue)
 {
-
     char floatStr[12];
     strcat(bytecodeFileContent, "\nldc ");
     sprintf(floatStr, "%f", floatValue);
@@ -112,7 +102,6 @@ void pushFloat(float floatValue)
 
 void pushChar(char charValue)
 {
-
     char stringValue[4];
     stringValue[0] = '\"';
     stringValue[1] = charValue;
@@ -125,7 +114,6 @@ void pushChar(char charValue)
 
 void pushBool(bool boolValue)
 {
-
     char boolStr[12];
     strcat(bytecodeFileContent, "\nbipush ");
     sprintf(boolStr, "%i", boolValue);
@@ -134,7 +122,6 @@ void pushBool(bool boolValue)
 
 void saveTypeToVariables(char variableType, lista_t *inics)
 {
-
     for (size_t i = 0; i < lista_tamanho(inics, NULL); i++)
     {
         /* Obtencao do proximo identificador da lista. */
@@ -147,7 +134,6 @@ void saveTypeToVariables(char variableType, lista_t *inics)
 
 char getVariableType(int variableId)
 {
-
     if (variableTypes[variableId] == ' ')
     {
         return lastUsedType;
@@ -160,7 +146,6 @@ char getVariableType(int variableId)
 
 void storeVariable(char *variableName)
 {
-
     int variableId = getVariableId(variableName);
     char variableType = getVariableType(variableId);
 
@@ -186,7 +171,6 @@ void storeVariable(char *variableName)
 
 void loadVariable(char *variableName)
 {
-
     int variableId = getVariableId(variableName);
     char variableType = getVariableType(variableId);
 
@@ -212,7 +196,6 @@ void loadVariable(char *variableName)
 
 int lastIndexOfCharInString(char searched, char *string)
 {
-
     int size = strlen(string);
 
     for (int i = size - 1; i >= 0; i--)
@@ -228,7 +211,6 @@ int lastIndexOfCharInString(char searched, char *string)
 
 void substring(char s[], char sub[], int p, int l)
 {
-
     int c = 0;
 
     while (c < l)
@@ -241,7 +223,6 @@ void substring(char s[], char sub[], int p, int l)
 
 void printHeadStack(char printType)
 {
-
     if (printType != 'C' && printType != 'F')
     {
         printType = 'I';

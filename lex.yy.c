@@ -1668,7 +1668,6 @@ static void yyensure_buffer_stack (void)
 	yy_size_t num_to_alloc;
     
 	if (!(yy_buffer_stack)) {
-
 		/* First allocation is just for 2 elements, since we don't know if this
 		 * scanner will even need a stack. We use 2 instead of 1 to avoid an
 		 * immediate realloc on the next call.
@@ -1688,7 +1687,6 @@ static void yyensure_buffer_stack (void)
 	}
 
 	if ((yy_buffer_stack_top) >= ((yy_buffer_stack_max)) - 1){
-
 		/* Increase the buffer to prepare for a possible push. */
 		yy_size_t grow_size = 8 /* arbitrary grow size */;
 
