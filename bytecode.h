@@ -6,7 +6,7 @@
 char bytecodeFileContent[100000];
 char variableMap[100][100];
 char variableTypes[100];
-char lastTypeUsed;
+char lastUsedType;
 
 void inicializarBytecodeFile();
 void finalizarBytecodeFile();
@@ -22,4 +22,5 @@ void saveTypeToVariables(char variableType, lista_t *inics);
 void storeVariable(char* variableName);
 void loadVariable(char* variableName);
 void printHeadStack(char printType);
-void setLastTypeUsed(char type);
+void setLastUsedType(char type);
+void bytecodeAdd();

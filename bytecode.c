@@ -147,7 +147,7 @@ void saveTypeToVariables(char variableType, lista_t *inics){
 char getVariableType(int variableId){
 
     if(variableTypes[variableId] == ' '){
-        return lastTypeUsed;
+        return lastUsedType;
     }else{
         return variableTypes[variableId];
     }
@@ -257,6 +257,21 @@ void printHeadStack(char printType){
 
 }
 
-void setLastTypeUsed(char type){
-    lastTypeUsed = type;
+void setLastUsedType(char type){
+    lastUsedType = type;
+}
+
+void bytecodeAdd(){
+
+    switch (lastUsedType)
+    {
+        case 'F':
+            strcat(bytecodeFileContent, "\nfadd");
+            break;
+        
+        default:
+            strcat(bytecodeFileContent, "\niadd");
+            break;
+    }
+
 }

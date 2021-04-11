@@ -325,11 +325,12 @@ expr_relac
 expr_soma		
 	:	expr_soma T_MAIS expr_mult {
 			puts ("expr_soma1");
-			$$ = expr_soma ($2, $1, $3); 
+			$$ = expr_soma (T_MAIS, $1, $3);
+            bytecodeAdd();
 		}
 	|	expr_soma T_MENOS expr_mult	{
 			puts ("expr_soma2");
-			$$ = expr_soma ($2, $1, $3); 
+			$$ = expr_soma (T_MENOS, $1, $3); 
 		}
 	|	expr_mult						
 	;
@@ -337,15 +338,15 @@ expr_soma
 expr_mult		
 	:	expr_mult T_VEZES expr_simpl {
 			puts ("expr_mult1");
-			$$ = expr_mult ($2, $1, $3);
+			$$ = expr_mult (T_VEZES, $1, $3);
 		}
 	|	expr_mult T_DIV expr_simpl {
 			puts ("expr_mult2");
-			$$ = expr_mult ($2, $1, $3);
+			$$ = expr_mult (T_DIV, $1, $3);
 		}
 	|	expr_mult T_RESTO expr_simpl {
 			puts ("expr_mult3");
-			$$ = expr_mult ($2, $1, $3);
+			$$ = expr_mult (T_RESTO, $1, $3);
 		}
 	|	expr_unaria
 	;
@@ -366,21 +367,21 @@ expr_simpl
 	|	T_BOOL {
 			puts ("expr_simpl2");
             pushBool(cte_bool);
-            setLastTypeUsed('I');
+            setLastUsedType('I');
 			/* cte_bool */
 			// $$ = yylval.tipo;
 		}
 	|	T_CHAR {
 			puts ("expr_simpl3");
             pushChar(cte_char);
-            setLastTypeUsed('C');
+            setLastUsedType('C');
 			/* cte_char */			
 			// $$ = yylval.tipo;
 		}
 	|	T_FLOAT  {
 			puts ("expr_simpl4");
             pushFloat(cte_float);
-            setLastTypeUsed('F');
+            setLastUsedType('F');
 			/* cte_float */
 			// $$ = yylval.tipo; 
 		}
@@ -393,7 +394,7 @@ expr_simpl
 	|	T_INT {
 			puts ("expr_simpl6");
             pushInt(cte_int);
-            setLastTypeUsed('I');
+            setLastUsedType('I');
 			/* cte_int */
 			// $$ = yylval.tipo;
 		}

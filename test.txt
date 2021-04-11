@@ -1,21 +1,16 @@
 int main (void)
 {
-	int x = 10;
-    x = 20;
-    print_int(x);
+	float x = 10.3 + 203.05;
+    print_float(x);
 
-    float y = 10.3;
-    y = 23.7;
-    print_float(y);
+    x = x + 22.033;
+    print_float(x);
 
-    char z = 'a';
-    z = 'b';
-    print_char(z);
+    int y = 10 + 20;
+    print_int(y);
 
-    bool w = false;
-    print_bool(w);
-    w = true;
-    print_bool(w);
+    y = y + 22;
+    print_int(y);
 
     return 0;
 }
