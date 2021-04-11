@@ -1,6 +1,6 @@
-# include "lista.h"
-# include <stdio.h>
-# include "tabsimb-defs.h"
+#include "lista.h"
+#include <stdio.h>
+#include "tabsimb-defs.h"
 
 /* ================================================================= */
 /* INFORMACOES BASICAS DO ARQUIVO */
@@ -14,27 +14,26 @@
 /* VARIAVEIS GLOBAIS. */
 /* ================================================================= */
 
-extern int yyleng;		/* Quantidade de caracteres do ultimo token 
+extern int yyleng;   /* Quantidade de caracteres do ultimo token 
 						 * reconhecido. */
-extern char* yytext;	/* Ultimo token reconhecido. */
+extern char *yytext; /* Ultimo token reconhecido. */
 
-int linha;				/* Linha do ultimo token reconhecido. */
-int coluna;				/* Coluna do ultimo token reconhecido. */
+int linha;  /* Linha do ultimo token reconhecido. */
+int coluna; /* Coluna do ultimo token reconhecido. */
 
-extern bool cte_bool;	/* Um valor booleano. */
-extern char cte_char;	/* Um caractere. */
-extern float cte_float;	/* Um numero de ponto flutuante. */
-extern int cte_int;		/* Um numero inteiro. */
+extern bool cte_bool;   /* Um valor booleano. */
+extern char cte_char;   /* Um caractere. */
+extern float cte_float; /* Um numero de ponto flutuante. */
+extern int cte_int;     /* Um numero inteiro. */
 
-extern tabsimb_t *tab;	/* Tabela de simbolos (definida no arquivo
+extern tabsimb_t *tab; /* Tabela de simbolos (definida no arquivo
 						 * tabsimb.c). */
 
 /* ================================================================= */
 /* DECLARACOES DE FUNCOES. */
 /* ================================================================= */
 
-int acao_lexica (int token);
-void atualizar_cursor (void);
+int acao_lexica(int token);
+void atualizar_cursor(void);
 
-extern void yyerror (const char* mensagem);
-
+extern void yyerror(const char *mensagem);

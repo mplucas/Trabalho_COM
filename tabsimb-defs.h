@@ -1,8 +1,8 @@
-# ifndef TABSIMB_DEFINICOES_H
-# define TABSIMB_DEFINICOES_H
+#ifndef TABSIMB_DEFINICOES_H
+#define TABSIMB_DEFINICOES_H
 
-# include "lista.h"
-# include <stdbool.h>
+#include "lista.h"
+#include <stdbool.h>
 
 /* ================================================================= */
 /* INFORMACOES BASICAS DO ARQUIVO */
@@ -22,9 +22,10 @@
 /* DADOS DOS TIPOS DE DADOS DA LINGUAGEM  (bool, char, ...) */
 /* ----------------------------------------------------------------- */
 
-typedef struct dados_de_tipo_t {
-	char *nome;					/* Nome do tipo. */
-	size_t bytes;				/* Quantidade de bytes ocupados por
+typedef struct dados_de_tipo_t
+{
+    char *nome;   /* Nome do tipo. */
+    size_t bytes; /* Quantidade de bytes ocupados por
 								 * um valor deste tipo. */
 } tipo_t;
 
@@ -45,23 +46,24 @@ typedef struct dados_de_tipo_t {
  * nao ha como declarar uma variavel sem defini-la, enquanto uma funcao
  * pode ser primeiro declarada e depois definida. */
 
-typedef struct entrada_de_tabela_t {
-	char *id;					/* Identificador. E a "chave primaria"
+typedef struct entrada_de_tabela_t
+{
+    char *id;        /* Identificador. E a "chave primaria"
 								 * da entrada. */
-	int tipo_entr;				/* Tipo da entrada (funcao, variavel ou
+    int tipo_entr;   /* Tipo da entrada (funcao, variavel ou
 								 * ainda nao especificado). */
-	tipo_t *tipo;				/* Tipo de dados da variavel ou da
+    tipo_t *tipo;    /* Tipo de dados da variavel ou da
 								   funcao (bool, int, etc). */
-	void *valor;				/* Valor da variavel ou valor de
+    void *valor;     /* Valor da variavel ou valor de
 								   retorno da funcao. */
-	lista_t *params;			/* Tipos dos parametros da funcao */
-	bool definida;				/* Flag que indica se existe definicao
+    lista_t *params; /* Tipos dos parametros da funcao */
+    bool definida;   /* Flag que indica se existe definicao
 								   para a entrada. */
-	bool declarada;				/* Flag que indica se existe uma
+    bool declarada;  /* Flag que indica se existe uma
 								   declaracao para a entrada. */
-	int linha;					/* Linha em que a variavel ou a funcao
+    int linha;       /* Linha em que a variavel ou a funcao
 								   foi definida. */
-	int coluna;					/* Coluna em que a variavel ou a funcao
+    int coluna;      /* Coluna em que a variavel ou a funcao
 								   foi definida. */
 } entr_t;
 
@@ -72,11 +74,12 @@ typedef struct entrada_de_tabela_t {
 /* Nesse compilador, uma tabela de simbolos e simplesmente uma lista
  * encadeada de entradas. */
 
-typedef struct tabela_de_simbolos_t {
-	lista_t *entrs;			/* Lista que armazena os dados da 
+typedef struct tabela_de_simbolos_t
+{
+    lista_t *entrs; /* Lista que armazena os dados da 
 							 * tabela. */
 } tabsimb_t;
 
 /* ================================================================= */
 
-# endif
+#endif
