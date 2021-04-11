@@ -8,6 +8,7 @@ void inicializarBytecodeFile(){
     
     for(int i = 0; i < 100; i++){
         strcpy(variableMap[i], "");
+        variableTypes[i] = ' ';
     }
 
 }
@@ -129,11 +130,53 @@ void pushBool(bool boolValue){
 
 }
 
+void saveTypeToVariables(char variableType, lista_t *inics){
+
+    for (size_t i = 0; i < lista_tamanho (inics, NULL); i++)
+	{
+		/* Obtencao do proximo identificador da lista. */
+		char *variableName;
+		lista_buscar (inics, i, &variableName);
+        int variableId = getVariableId(variableName);
+        variableTypes[variableId] = variableType;
+        printf("\nvariableTypes[%d] = %c\n", variableId, variableType);
+    }
+
+
+}
+
+char getVariableType(int variableId){
+
+    if(variableTypes[variableId] == ' '){
+        return lastTypeUsed;
+    }else{
+        return variableTypes[variableId];
+    }
+
+}
+
 void storeVariable(char* variableName){
     
-    char intStr[12];
-    strcat(bytecodeFileContent, "\nistore ");
     int variableId = getVariableId(variableName);
+    char variableType = getVariableType(variableId);
+    printf("\n%s eh %c\n", variableName, variableType);
+
+    switch (variableType)
+    {
+        case 'C':
+            strcat(bytecodeFileContent, "\naastore ");
+            break;
+
+        case 'F':
+            strcat(bytecodeFileContent, "\nfstore ");
+            break;
+        
+        default:
+            strcat(bytecodeFileContent, "\nistore ");
+            break;
+    }
+    
+    char intStr[12];
     sprintf(intStr, "%i", variableId);
     strcat(bytecodeFileContent, intStr);   
 
@@ -141,9 +184,25 @@ void storeVariable(char* variableName){
 
 void loadVariable(char* variableName){
 
-    char intStr[12];
-    strcat(bytecodeFileContent, "\niload ");
     int variableId = getVariableId(variableName);
+    char variableType = getVariableType(variableId);    
+
+    switch (variableType)
+    {
+        case 'C':
+            strcat(bytecodeFileContent, "\naaload ");
+            break;
+
+        case 'F':
+            strcat(bytecodeFileContent, "\nfload ");
+            break;
+        
+        default:
+            strcat(bytecodeFileContent, "\niload ");
+            break;
+    }
+    
+    char intStr[12];
     sprintf(intStr, "%i", variableId);
     strcat(bytecodeFileContent, intStr);
 
@@ -198,4 +257,8 @@ void printHeadStack(char printType){
     strcat(bytecodeFileContent, printTypeStr);
     strcat(bytecodeFileContent, ")V");
 
+}
+
+void setLastTypeUsed(char type){
+    lastTypeUsed = type;
 }

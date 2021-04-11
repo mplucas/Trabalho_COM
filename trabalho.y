@@ -155,6 +155,15 @@ decl
 decl_var		
 	:	T_TIPO lista_inic {
 			puts ("declvar1");
+
+            if(strcmp(tipo_obter_nome($1), "float") == 0){
+                saveTypeToVariables('F', inics);
+            }else if(strcmp(tipo_obter_nome($1), "char") == 0){
+                saveTypeToVariables('C', inics);
+            }else{
+                saveTypeToVariables('I', inics);
+            }
+
 			decl_var ($1);
 		}
  	;				
@@ -357,18 +366,21 @@ expr_simpl
 	|	T_BOOL {
 			puts ("expr_simpl2");
             pushBool(cte_bool);
+            setLastTypeUsed('I');
 			/* cte_bool */
 			// $$ = yylval.tipo;
 		}
 	|	T_CHAR {
 			puts ("expr_simpl3");
             pushChar(cte_char);
+            setLastTypeUsed('C');
 			/* cte_char */			
 			// $$ = yylval.tipo;
 		}
 	|	T_FLOAT  {
 			puts ("expr_simpl4");
             pushFloat(cte_float);
+            setLastTypeUsed('F');
 			/* cte_float */
 			// $$ = yylval.tipo; 
 		}
@@ -381,6 +393,7 @@ expr_simpl
 	|	T_INT {
 			puts ("expr_simpl6");
             pushInt(cte_int);
+            setLastTypeUsed('I');
 			/* cte_int */
 			// $$ = yylval.tipo;
 		}
