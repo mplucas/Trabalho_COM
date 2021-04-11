@@ -139,7 +139,6 @@ void saveTypeToVariables(char variableType, lista_t *inics){
 		lista_buscar (inics, i, &variableName);
         int variableId = getVariableId(variableName);
         variableTypes[variableId] = variableType;
-        printf("\nvariableTypes[%d] = %c\n", variableId, variableType);
     }
 
 
@@ -159,12 +158,11 @@ void storeVariable(char* variableName){
     
     int variableId = getVariableId(variableName);
     char variableType = getVariableType(variableId);
-    printf("\n%s eh %c\n", variableName, variableType);
 
     switch (variableType)
     {
         case 'C':
-            strcat(bytecodeFileContent, "\naastore ");
+            strcat(bytecodeFileContent, "\nastore ");
             break;
 
         case 'F':
@@ -190,7 +188,7 @@ void loadVariable(char* variableName){
     switch (variableType)
     {
         case 'C':
-            strcat(bytecodeFileContent, "\naaload ");
+            strcat(bytecodeFileContent, "\naload ");
             break;
 
         case 'F':
