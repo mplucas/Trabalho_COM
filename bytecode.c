@@ -135,8 +135,8 @@ void saveTypeToVariables(char variableType, lista_t *inics){
     for (size_t i = 0; i < lista_tamanho (inics, NULL); i++)
 	{
 		/* Obtencao do proximo identificador da lista. */
-		char *variableName;
-		lista_buscar (inics, i, &variableName);
+        char *variableName;
+        lista_buscar (inics, i, &variableName);
         int variableId = getVariableId(variableName);
         variableTypes[variableId] = variableType;
     }
