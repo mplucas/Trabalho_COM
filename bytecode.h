@@ -27,4 +27,7 @@ void bytecodeAdd();
 void bytecodeSub();
 void bytecodeMul();
 void bytecodeDiv();
+void bytecodeNeg();
 void bytecodeRest();
+void bytecodeAnd();
+void bytecodeOr();

@@ -365,3 +365,11 @@ void bytecodeRest()
 
     bytecodeNeg();
 }
+
+void bytecodeAnd(){
+    strcat(bytecodeFileContent, "\niand");
+}
+
+void bytecodeOr(){
+    strcat(bytecodeFileContent, "\nior");
+}

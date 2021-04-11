@@ -276,6 +276,7 @@ expr_ou
 	:	expr_ou T_OU expr_e	{
 			puts ("expr_ou");
 			$$ = expr_ou ($1, $3); 
+            bytecodeOr();
 		}
 	|	expr_e
 	;
@@ -284,6 +285,7 @@ expr_e
 	:	expr_e T_E expr_ou_excl	{
 			puts ("expr_e");
 			$$ = expr_e ($1, $3); 
+            bytecodeAnd();
 		}
 	|	expr_ou_excl
 	;			
@@ -358,6 +360,11 @@ expr_mult
 expr_unaria		
 	:	oper_unario expr_simpl {
 			puts ("expr_unaria1");
+
+            if($1 == T_MENOS){
+                bytecodeNeg();
+            }
+
 			$$ = expr_unaria ($1, $2);
 		}
 	|	expr_simpl
@@ -438,8 +445,12 @@ lista_arg
 	;
 
 oper_unario		
-	:	T_MAIS 
-	|	T_MENOS 
+	:	T_MAIS {
+        $$ = T_MAIS;
+    }
+	|	T_MENOS {
+        $$ = T_MENOS;
+    }
 	|	oper_unario_log ; 
 
 oper_unario_log	
