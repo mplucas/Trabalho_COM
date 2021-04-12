@@ -37,3 +37,4 @@ void setLastIfCmp(char *type);
 void bytecodeIf();
 void addLabel();
 void gotoNextLabel();
+void gotoLastLabel();

@@ -1,13 +1,9 @@
 int main (void)
 {
-    if(5<4){
-        print_char('b');
-    }else if(3 > 9){
-        print_char('a');
-    }else if(2 == 0){
-        print_char('c');
-    }else{
-        print_char('d');
+    int i = 0;
+    while(i < 3){
+        print_int(i);
+        i = i + 1;
     }
 
     return 0;

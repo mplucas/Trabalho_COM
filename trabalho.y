@@ -241,8 +241,23 @@ cmd_for
 	;
 
 cmd_while		
-	:	T_WHILE T_APAREN expr T_FPAREN cmd_composto
+	:	T_WHILE for_aparen expr for_fparen cmd_composto{
+            gotoLastLabel();
+            addLabel();
+        }
 	;
+
+for_aparen
+    : T_APAREN{
+        addLabel();
+    }
+    ;
+
+for_fparen
+    : T_FPAREN{
+        bytecodeIf();
+    }
+    ;
 
 cmd_do_while	
 	:	T_DO cmd_composto T_WHILE T_APAREN expr T_FPAREN T_PEV

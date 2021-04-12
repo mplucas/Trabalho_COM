@@ -431,3 +431,12 @@ void gotoNextLabel()
     sprintf(intStr, "%i", labelCount + 1);
     strcat(bytecodeFileContent, intStr);
 }
+
+void gotoLastLabel()
+{
+    strcat(bytecodeFileContent, "\ngoto l");
+
+    char intStr[12];
+    sprintf(intStr, "%i", labelCount - 1);
+    strcat(bytecodeFileContent, intStr);
+}
