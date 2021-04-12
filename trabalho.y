@@ -154,7 +154,6 @@ decl
 
 decl_var		
 	:	T_TIPO lista_inic {
-			puts ("declvar1");
 
             if(strcmp(tipo_obter_nome($1), "float") == 0){
                 saveTypeToVariables('F', inics);
@@ -170,22 +169,18 @@ decl_var
 
 lista_inic
 	: 	lista_inic T_VIRG inic {
-			puts ("lista_inic1");
 			lista_inic ($3);
 		}
 	| 	inic {
-			puts ("lista_inic2");
 			lista_inic ($1); 
 		}
 	;
 
 inic
 	: 	T_ID {
-			puts ("inic1");
 			inic ($1, NULL);
 		}	
 	|	T_ID T_ATRIB expr {
-			puts ("inic2");
 			inic ($1, $3);
             storeVariable($1);
 		}
@@ -281,9 +276,7 @@ expr
 expr_atrib
 	:	T_ID T_ATRIB expr_atrib	{
 			
-			puts ("expr_atrib1");
 			$$ = expr_atrib ($1, $3);
-            puts ("expr_atrib1_2");
             storeVariable($1);
 		}
 	|	expr_ou
@@ -291,7 +284,6 @@ expr_atrib
 
 expr_ou	
 	:	expr_ou T_OU expr_e	{
-			puts ("expr_ou");
 			$$ = expr_ou ($1, $3); 
             bytecodeOr();
 		}
@@ -300,7 +292,6 @@ expr_ou
 
 expr_e		
 	:	expr_e T_E expr_ou_excl	{
-			puts ("expr_e");
 			$$ = expr_e ($1, $3); 
             bytecodeAnd();
 		}
@@ -309,7 +300,6 @@ expr_e
 
 expr_ou_excl	
 	:	expr_ou_excl T_OU_EXCL expr_igual {
-			puts ("expr_ou_excl");
 			$$ = expr_ou_excl ($1, $3); 
 		}
 	|	expr_igual
@@ -327,22 +317,18 @@ expr_igual
 
 expr_relac
 	:	expr_relac T_MENOR expr_soma {
-			puts ("expr_relac1");
 			$$ = expr_relac (T_MENOR, $1, $3); 
             setLastIfCmp("lt");
 		}
 	|	expr_relac T_MAIOR expr_soma {
-			puts ("expr_relac2");
 			$$ = expr_relac (T_MAIOR, $1, $3);
             setLastIfCmp("gt");
 		}
 	|	expr_relac T_MENOR_IGUAL expr_soma {
-			puts ("expr_relac3");
 			$$ = expr_relac (T_MENOR_IGUAL, $1, $3);
             setLastIfCmp("le");
 		}
 	|	expr_relac T_MAIOR_IGUAL expr_soma {
-			puts ("expr_relac4");
 			$$ = expr_relac (T_MAIOR_IGUAL, $1, $3); 
             setLastIfCmp("ge");
 		}
@@ -351,12 +337,10 @@ expr_relac
 
 expr_soma		
 	:	expr_soma T_MAIS expr_mult {
-			puts ("expr_soma1");
 			$$ = expr_soma (T_MAIS, $1, $3);
             bytecodeAdd();
 		}
 	|	expr_soma T_MENOS expr_mult	{
-			puts ("expr_soma2");
 			$$ = expr_soma (T_MENOS, $1, $3); 
             bytecodeSub();
 		}
@@ -365,17 +349,14 @@ expr_soma
 
 expr_mult		
 	:	expr_mult T_VEZES expr_simpl {
-			puts ("expr_mult1");
 			$$ = expr_mult (T_VEZES, $1, $3);
             bytecodeMul();
 		}
 	|	expr_mult T_DIV expr_simpl {
-			puts ("expr_mult2");
 			$$ = expr_mult (T_DIV, $1, $3);
             bytecodeDiv();
 		}
 	|	expr_mult T_RESTO expr_simpl {
-			puts ("expr_mult3");
 			$$ = expr_mult (T_RESTO, $1, $3);
             bytecodeRest();
 		}
@@ -384,7 +365,6 @@ expr_mult
 
 expr_unaria		
 	:	oper_unario expr_simpl {
-			puts ("expr_unaria1");
 
             if($1 == T_MENOS){
                 bytecodeNeg();
@@ -397,38 +377,31 @@ expr_unaria
 
 expr_simpl
 	:	T_APAREN expr T_FPAREN {
-			puts ("expr_simpl1");
 			$$ = $2;
 		}
 	|	T_BOOL {
-			puts ("expr_simpl2");
             pushBool(cte_bool);
             setLastUsedType('I');
 			/* cte_bool */
 			// $$ = yylval.tipo;
 		}
 	|	T_CHAR {
-			puts ("expr_simpl3");
             pushChar(cte_char);
             setLastUsedType('C');
 			/* cte_char */			
 			// $$ = yylval.tipo;
 		}
 	|	T_FLOAT  {
-			puts ("expr_simpl4");
             pushFloat(cte_float);
             setLastUsedType('F');
 			/* cte_float */
 			// $$ = yylval.tipo; 
 		}
 	|	T_ID {
-			puts ("expr_simpl5");
 			$$ = expr_simpl_r5 ($1);
-            puts ("expr_simpl5_2");
             loadVariable($1);
 		}
 	|	T_INT {
-			puts ("expr_simpl6");
             pushInt(cte_int);
             setLastUsedType('I');
 			/* cte_int */
@@ -449,22 +422,18 @@ expr_simpl
 
 chamada_funcao
 	:	T_ID T_APAREN lista_arg T_FPAREN {
-			puts ("chamada_funcao1");
 			$$ = chamada_funcao ($1);
 		} 
 	|	T_ID T_APAREN T_FPAREN {
-			puts ("chamada_funcao2");
 			$$ = chamada_funcao ($1); 
 		}
 	;
 
 lista_arg		
 	:	lista_arg T_VIRG expr {
-			puts ("lista_arg1");
 			lista_arg ($3);
 		}
 	|	expr {
-			puts ("lista_arg2");
 			lista_arg ($1);
 		}
 	;
