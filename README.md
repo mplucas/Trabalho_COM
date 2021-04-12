@@ -149,14 +149,14 @@ Nem todas as acoes de analise semantica necessarias para o
 funcionamento completo do compilador foram implementadas. As seguintes
 verificacoes de analise semantica estao em funcionamento:
 
--- se um identificador foi declarado antes do seu uso.
--- se o tipo do identificador (funcao ou variavel) e compativel com seu
+- se um identificador foi declarado antes do seu uso.
+- se o tipo do identificador (funcao ou variavel) e compativel com seu
 uso. Por exemplo: o compilador indica erro se um identificador
 relativo a uma variavel e usado numa chamada de funcao.
--- se o valor de inicializacao de uma variavel em sua declaracao e
+- se o valor de inicializacao de uma variavel em sua declaracao e
 compativel com o tipo indicado para a variavel.
--- se os tipos dos operandos em expressoes estao corretos.
--- se uma variavel esta sendo redeclarada.
+- se os tipos dos operandos em expressoes estao corretos.
+- se uma variavel esta sendo redeclarada.
 
 ## Passo a passo para testar
 ---------------------------------------------------------------------
