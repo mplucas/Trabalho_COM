@@ -161,7 +161,7 @@ comandos de atribuição e print_int()
 ## Passo a passo para testar
 ---------------------------------------------------------------------
 - Alterar o arquivo compile_script para executável e executar:
-./compile_script
+make compile_script
 
 - Esse comando irá gerar o a.out, que é o compilador, após isso,
 executar:
@@ -169,9 +169,24 @@ executar:
 - test.txt é um exemplo de arquivo a ser lido pelo compilador que
 contem os testes pedidos
 
-- Após isso, o java_bytecode.j é gerado. Executar o jasmin para a
-classe java utilizado esse arquivo:
-java -jar jasmin-2.4/jasmin.jar java_bytecode.j
+- Após isso, o java_bytecode.j é gerado. Executar o comando:
+make bytecode_to_jasmin_and_execute
 
-- Após isso, executar a classe gerada:
-java java_class
+- Se quiser fazer todos os passos juntos, executar apenas:
+make full_test
+- Isso, sendo que o codigo a ser compilado se encontra em test.txt
+
+## Funcionalidades completadas
+---------------------------------------------------------------------
+- Atribuições de variáveis
+- Prints de cada tipo
+    - print_int()
+    - print_float()
+    - print_char()
+    - print_bool()
+- Operações aritméticas: +, -, *, /, %
+- Operações booleanas: &&, ||
+- Comando If, bem como comparação de valores dentro de Ifs:
+    - if(x < y), if(x <= y), if(x > y), if(x >= y), if(x == y), if(x != y)
+- Laço de repetição while, com as mesmas comparações do if:
+    - while(x < y), while(x <= y), while(x > y), while(x >= y), while(x == y), while(x != y)
