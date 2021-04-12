@@ -7,6 +7,8 @@ char bytecodeFileContent[100000];
 char variableMap[100][100];
 char variableTypes[100];
 char lastUsedType;
+int labelCount;
+char lastIfCmp[5];
 
 void inicializarBytecodeFile();
 void finalizarBytecodeFile();
@@ -31,3 +33,7 @@ void bytecodeNeg();
 void bytecodeRest();
 void bytecodeAnd();
 void bytecodeOr();
+void setLastIfCmp(char *type);
+void bytecodeIf();
+void addLabel();
+void gotoNextLabel();

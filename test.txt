@@ -1,28 +1,14 @@
 int main (void)
 {
-    bool y = true && true;
-    print_bool(y);
-
-    y = true && false;
-    print_bool(y);
-
-    y = false && true;
-    print_bool(y);
-
-    y = false && false;
-    print_bool(y);
-
-    y = true || true;
-    print_bool(y);
-
-    y = true || false;
-    print_bool(y);
-
-    y = false || true;
-    print_bool(y);
-
-    y = false || false;
-    print_bool(y);
+    if(5<4){
+        print_char('b');
+    }else if(3 > 9){
+        print_char('a');
+    }else if(2 == 0){
+        print_char('c');
+    }else{
+        print_char('d');
+    }
 
     return 0;
 }

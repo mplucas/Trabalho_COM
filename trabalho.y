@@ -208,10 +208,27 @@ lista_instr
 	|	instrucao
 	;				
 
-cmd_selecao		
-	:	T_IF T_APAREN expr T_FPAREN instrucao %prec T_ELSE_FALSO
-	|	T_IF T_APAREN expr T_FPAREN instrucao T_ELSE instrucao
+cmd_selecao
+	:	T_IF T_APAREN expr if_fparen instrucao %prec T_ELSE_FALSO {
+            addLabel();
+        }
+	|	T_IF T_APAREN expr if_fparen instrucao if_else instrucao {
+            addLabel();
+        }
 	;
+
+if_fparen
+    : T_FPAREN {
+            bytecodeIf();
+        }
+    ;
+
+if_else
+    : T_ELSE {
+            gotoNextLabel();
+            addLabel();
+        }
+    ;
 
 cmd_repeticao	
 	:	cmd_for | cmd_while | cmd_do_while 
@@ -299,27 +316,35 @@ expr_ou_excl
 	;
 
 expr_igual		
-	:	expr_igual T_IGUAL expr_relac
-	|	expr_igual T_DIFER expr_relac
+	:	expr_igual T_IGUAL expr_relac {
+            setLastIfCmp("eq");
+        }
+	|	expr_igual T_DIFER expr_relac {
+            setLastIfCmp("ne");
+        }
 	|	expr_relac
 	; 
 
 expr_relac
 	:	expr_relac T_MENOR expr_soma {
 			puts ("expr_relac1");
-			$$ = expr_relac ($2, $1, $3); 
+			$$ = expr_relac (T_MENOR, $1, $3); 
+            setLastIfCmp("lt");
 		}
 	|	expr_relac T_MAIOR expr_soma {
 			puts ("expr_relac2");
-			$$ = expr_relac ($2, $1, $3);
+			$$ = expr_relac (T_MAIOR, $1, $3);
+            setLastIfCmp("gt");
 		}
 	|	expr_relac T_MENOR_IGUAL expr_soma {
 			puts ("expr_relac3");
-			$$ = expr_relac ($2, $1, $3);
+			$$ = expr_relac (T_MENOR_IGUAL, $1, $3);
+            setLastIfCmp("le");
 		}
 	|	expr_relac T_MAIOR_IGUAL expr_soma {
 			puts ("expr_relac4");
-			$$ = expr_relac ($2, $1, $3); 
+			$$ = expr_relac (T_MAIOR_IGUAL, $1, $3); 
+            setLastIfCmp("ge");
 		}
 	|	expr_soma
 	;

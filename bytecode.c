@@ -11,6 +11,9 @@ void inicializarBytecodeFile()
         strcpy(variableMap[i], "");
         variableTypes[i] = ' ';
     }
+
+    labelCount = 1;
+    strcpy(lastIfCmp, " ");
 }
 
 void finalizarBytecodeFile()
@@ -240,6 +243,7 @@ void printHeadStack(char printType)
     int lastIndexOfCommand = lastIndexOfCharInString('\n', bytecodeFileContent);
     substring(bytecodeFileContent, lastLoadCommand, lastIndexOfCommand, strlen(bytecodeFileContent) - lastIndexOfCommand + 1);
 
+    bytecodeFileContent[lastIndexOfCommand] = '\0';
     strcat(bytecodeFileContent, "\ngetstatic java/lang/System/out Ljava/io/PrintStream;");
     strcat(bytecodeFileContent, lastLoadCommand);
     strcat(bytecodeFileContent, "\ninvokevirtual java/io/PrintStream/println(");
@@ -347,10 +351,83 @@ void bytecodeRest()
     bytecodeNeg();
 }
 
-void bytecodeAnd(){
+void bytecodeAnd()
+{
     strcat(bytecodeFileContent, "\niand");
 }
 
-void bytecodeOr(){
+void bytecodeOr()
+{
     strcat(bytecodeFileContent, "\nior");
+}
+
+void addLabel()
+{
+    strcat(bytecodeFileContent, "\nl");
+
+    char intStr[12];
+    sprintf(intStr, "%i", labelCount);
+    strcat(bytecodeFileContent, intStr);
+
+    strcat(bytecodeFileContent, ":");
+
+    labelCount++;
+}
+
+void setLastIfCmp(char *type)
+{
+    strcpy(lastIfCmp, type);
+}
+
+void bytecodeIf()
+{
+    char mappedType[5] = "";
+
+    if (strcmp(lastIfCmp, "eq") == 0)
+    {
+        strcpy(mappedType, "ne");
+    }
+    else if (strcmp(lastIfCmp, "ne") == 0)
+    {
+        strcpy(mappedType, "eq");
+    }
+    else if (strcmp(lastIfCmp, "lt") == 0)
+    {
+        strcpy(mappedType, "ge");
+    }
+    else if (strcmp(lastIfCmp, "le") == 0)
+    {
+        strcpy(mappedType, "gt");
+    }
+    else if (strcmp(lastIfCmp, "gt") == 0)
+    {
+        strcpy(mappedType, "le");
+    }
+    else if (strcmp(lastIfCmp, "ge") == 0)
+    {
+        strcpy(mappedType, "lt");
+    }
+    else if (strcmp(lastIfCmp, " ") == 0)
+    {
+        strcpy(mappedType, "eq");
+        strcat(bytecodeFileContent, "\nbipush 0");
+    }
+    strcpy(lastIfCmp, " ");
+
+    strcat(bytecodeFileContent, "\nif_icmp");
+    strcat(bytecodeFileContent, mappedType);
+    strcat(bytecodeFileContent, " l");
+
+    char intStr[12];
+    sprintf(intStr, "%i", labelCount);
+    strcat(bytecodeFileContent, intStr);
+}
+
+void gotoNextLabel()
+{
+    strcat(bytecodeFileContent, "\ngoto l");
+
+    char intStr[12];
+    sprintf(intStr, "%i", labelCount + 1);
+    strcat(bytecodeFileContent, intStr);
 }
