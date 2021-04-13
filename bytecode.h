@@ -49,3 +49,4 @@ void gotoLastLabel();
 void saveMarkStart(int index);
 void saveMarkEnd(int index);
 void swapMarks();
+void scan_int();

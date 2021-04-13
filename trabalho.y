@@ -476,6 +476,8 @@ expr_simpl
                 printHeadStack('F');
             } else if (strcmp (id_func_chamada, "print_bool") == 0){
                 printHeadStack('B');
+            }else if  (strcmp (id_func_chamada, "scan_int") == 0){
+                scan_int();
             }
         }
 	;

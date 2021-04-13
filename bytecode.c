@@ -2,15 +2,37 @@
 #include <string.h>
 #include <stdbool.h>
 
+int getVariableId(char *variableName)
+{
+    for (int i = 0; i < 100; i++)
+    {
+        if (strlen(variableMap[i]) == 0 || strcmp(variableMap[i], variableName) == 0)
+        {
+            strcpy(variableMap[i], variableName);
+            return i + 1;
+        }
+    }
+
+    return -1;
+}
+
 void inicializarBytecodeFile()
 {
     strcpy(bytecodeFileContent, ".class public java_class\n.super java/lang/Object\n\n.method public <init>()V\naload_0\ninvokenonvirtual java/lang/Object/<init>()V\nreturn\n.end method\n\n.method public static main([Ljava/lang/String;)V\n.limit locals 100\n.limit stack 100\n.line 1\n");
+
+    strcat(bytecodeFileContent, "\nnew java/util/Scanner\ndup\ngetstatic java/lang/System/in Ljava/io/InputStream;\ninvokespecial java/util/Scanner/<init>(Ljava/io/InputStream;)V");
 
     for (int i = 0; i < 100; i++)
     {
         strcpy(variableMap[i], "");
         variableTypes[i] = ' ';
     }
+
+    char intStr[12];
+    int scannerId = getVariableId("scanner");
+    sprintf(intStr, "%i", scannerId);
+    strcat(bytecodeFileContent, "\nastore_");
+    strcat(bytecodeFileContent, intStr);
 
     labelCount = 1;
     strcpy(lastIfCmp, " ");
@@ -30,20 +52,6 @@ void finalizarBytecodeFile()
     fputs(bytecodeFileContent, bytecodeFile);
 
     fclose(bytecodeFile);
-}
-
-int getVariableId(char *variableName)
-{
-    for (int i = 0; i < 100; i++)
-    {
-        if (strlen(variableMap[i]) == 0 || strcmp(variableMap[i], variableName) == 0)
-        {
-            strcpy(variableMap[i], variableName);
-            return i + 1;
-        }
-    }
-
-    return -1;
 }
 
 void atribuiValorIntParaVariavel(int valorInt, char *nomeVariavel)
@@ -482,4 +490,26 @@ void swapMarks()
 
     strcat(bytecodeFileContent, mark2Content);
     strcat(bytecodeFileContent, mark1Content);
+}
+
+void scan_int()
+{
+    // char lastLoadCommand[100];
+    // int lastIndexOfCommand = lastIndexOfCharInString('\n', bytecodeFileContent);
+    // substring(bytecodeFileContent, lastLoadCommand, lastIndexOfCommand, strlen(bytecodeFileContent) - lastIndexOfCommand + 1);
+    // bytecodeFileContent[lastIndexOfCommand] = '\0';
+
+    // char lastLoadedId[10];
+    // lastIndexOfCommand = lastIndexOfCharInString('_', lastLoadCommand);
+    // substring(lastLoadCommand, lastLoadedId, lastIndexOfCommand, strlen(lastLoadCommand) - lastIndexOfCommand + 1);
+
+    char intStr[12];
+    int scannerId = getVariableId("scanner");
+    sprintf(intStr, "%i", scannerId);
+
+    strcat(bytecodeFileContent, "\naload_");
+    strcat(bytecodeFileContent, intStr);
+    strcat(bytecodeFileContent, "\ninvokevirtual java/util/Scanner/nextInt()I");
+    // strcat(bytecodeFileContent, "\nistore");
+    // strcat(bytecodeFileContent, lastLoadedId);
 }
