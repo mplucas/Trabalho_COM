@@ -188,5 +188,5 @@ make full_test
 - Operações booleanas: &&, ||
 - Comando If, bem como comparação de valores dentro de Ifs:
     - if(x < y), if(x <= y), if(x > y), if(x >= y), if(x == y), if(x != y)
-- Laço de repetição while, com as mesmas comparações do if:
+- Laço de repetição for, while e do_while, com as mesmas comparações do if:
     - while(x < y), while(x <= y), while(x > y), while(x >= y), while(x == y), while(x != y)
