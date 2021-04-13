@@ -1,9 +1,21 @@
 int main (void)
 {
-    int i;
+    int i = 0;
+    
+    while(i < 3){
+        print_int(i);
+        i = i + 1;
+    }
+
     for(i = 0; i < 3; i = i + 1){
         print_int(i);
     }
+
+    i = 0;
+    do{
+        print_int(i);
+        i = i + 1;
+    }while(i < 0);
 
     return 0;
 }

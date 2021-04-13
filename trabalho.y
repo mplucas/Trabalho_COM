@@ -240,29 +240,9 @@ cmd_for
 	|	T_FOR T_APAREN        for_pev1          for_pev2  		T_FPAREN for_cmd_composto
 	;
 
-cmd_while		
-	:	T_WHILE for_aparen expr for_fparen for_cmd_composto
-	;
-
-cmd_do_while	
-	:	T_DO cmd_composto T_WHILE T_APAREN expr T_FPAREN T_PEV
-	;
-
-for_aparen
-    : T_APAREN{
-        addLabel();
-    }
-    ;
-
 for_pev1
     : T_PEV{
         addLabel();
-    }
-    ;
-
-for_fparen
-    : T_FPAREN{
-        bytecodeIf();
     }
     ;
 
@@ -272,8 +252,44 @@ for_pev2
     }
     ;
 
+
+cmd_while		
+	:	T_WHILE for_aparen expr for_fparen1 for_cmd_composto
+	;
+
+for_aparen
+    : T_APAREN{
+        addLabel();
+    }
+    ;
+
+for_fparen1
+    : T_FPAREN{
+        bytecodeIf();
+    }
+    ;
+
 for_cmd_composto
     : cmd_composto{
+        gotoLastLabel();
+        addLabel();
+    }
+    ;
+
+
+cmd_do_while	
+	:	for_do cmd_composto T_WHILE T_APAREN expr for_do_while_fparen T_PEV
+	;
+
+for_do
+    : T_DO{
+        addLabel();
+    }
+    ;
+
+for_do_while_fparen
+    : T_FPAREN{
+        bytecodeIf();
         gotoLastLabel();
         addLabel();
     }
