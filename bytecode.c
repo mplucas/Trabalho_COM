@@ -14,6 +14,11 @@ void inicializarBytecodeFile()
 
     labelCount = 1;
     strcpy(lastIfCmp, " ");
+
+    mark1.start = 0;
+    mark1.end = 0;
+    mark2.start = 0;
+    mark2.end = 0;
 }
 
 void finalizarBytecodeFile()
@@ -439,4 +444,42 @@ void gotoLastLabel()
     char intStr[12];
     sprintf(intStr, "%i", labelCount - 1);
     strcat(bytecodeFileContent, intStr);
+}
+
+void saveMarkStart(int index)
+{
+    if (index == 1)
+    {
+        mark1.start = strlen(bytecodeFileContent);
+    }
+    else
+    {
+        mark2.start = strlen(bytecodeFileContent);
+    }
+}
+
+void saveMarkEnd(int index)
+{
+    if (index == 1)
+    {
+        mark1.end = strlen(bytecodeFileContent);
+    }
+    else
+    {
+        mark2.end = strlen(bytecodeFileContent);
+    }
+}
+
+void swapMarks()
+{
+    char mark1Content[100000] = "";
+    char mark2Content[100000] = "";
+
+    substring(bytecodeFileContent, mark1Content, mark1.start, mark1.end - mark1.start);
+    substring(bytecodeFileContent, mark2Content, mark2.start, mark2.end - mark2.start);
+
+    bytecodeFileContent[mark1.start] = '\0';
+
+    strcat(bytecodeFileContent, mark2Content);
+    strcat(bytecodeFileContent, mark1Content);
 }

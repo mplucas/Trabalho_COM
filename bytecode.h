@@ -2,6 +2,12 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+typedef struct Mark
+{
+    int start;
+    int end;
+} mark;
+
 // Conteúdo do arquivo de bytecode
 char bytecodeFileContent[100000];
 char variableMap[100][100];
@@ -9,6 +15,8 @@ char variableTypes[100];
 char lastUsedType;
 int labelCount;
 char lastIfCmp[5];
+mark mark1;
+mark mark2;
 
 void inicializarBytecodeFile();
 void finalizarBytecodeFile();
@@ -38,3 +46,6 @@ void bytecodeIf();
 void addLabel();
 void gotoNextLabel();
 void gotoLastLabel();
+void saveMarkStart(int index);
+void saveMarkEnd(int index);
+void swapMarks();

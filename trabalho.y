@@ -230,14 +230,14 @@ cmd_repeticao
 	;
 
 cmd_for			
-	:	T_FOR T_APAREN expr   for_pev1 expr 	for_pev2 expr 	T_FPAREN for_cmd_composto
-	|	T_FOR T_APAREN expr   for_pev1 expr 	for_pev2 		T_FPAREN for_cmd_composto
-	|	T_FOR T_APAREN expr   for_pev1          for_pev2 expr 	T_FPAREN for_cmd_composto
-	|	T_FOR T_APAREN expr   for_pev1          for_pev2  		T_FPAREN for_cmd_composto
-	|	T_FOR T_APAREN        for_pev1 expr     for_pev2 expr 	T_FPAREN for_cmd_composto
-	|	T_FOR T_APAREN        for_pev1 expr     for_pev2 		T_FPAREN for_cmd_composto
-	|	T_FOR T_APAREN        for_pev1          for_pev2 expr 	T_FPAREN for_cmd_composto
-	|	T_FOR T_APAREN        for_pev1          for_pev2  		T_FPAREN for_cmd_composto
+	:	T_FOR T_APAREN expr   for_pev1 expr 	for_pev2 expr 	for_fparen for_cmd_composto
+	|	T_FOR T_APAREN expr   for_pev1 expr 	for_pev2 		for_fparen for_cmd_composto
+	|	T_FOR T_APAREN expr   for_pev1          for_pev2 expr 	for_fparen for_cmd_composto
+	|	T_FOR T_APAREN expr   for_pev1          for_pev2  		for_fparen for_cmd_composto
+	|	T_FOR T_APAREN        for_pev1 expr     for_pev2 expr 	for_fparen for_cmd_composto
+	|	T_FOR T_APAREN        for_pev1 expr     for_pev2 		for_fparen for_cmd_composto
+	|	T_FOR T_APAREN        for_pev1          for_pev2 expr 	for_fparen for_cmd_composto
+	|	T_FOR T_APAREN        for_pev1          for_pev2  		for_fparen for_cmd_composto
 	;
 
 for_pev1
@@ -249,12 +249,32 @@ for_pev1
 for_pev2
     : T_PEV{
         bytecodeIf();
+        saveMarkStart(1);
+    }
+    ;
+
+for_fparen
+    : T_FPAREN{
+        saveMarkEnd(1);
+        saveMarkStart(2);
+    }
+    ;
+
+for_cmd_composto
+    : cmd_composto{
+        saveMarkEnd(2);
+        swapMarks();
+        gotoLastLabel();
+        addLabel();
     }
     ;
 
 
 cmd_while		
-	:	T_WHILE for_aparen expr for_fparen1 for_cmd_composto
+	:	T_WHILE for_aparen expr for_fparen1 cmd_composto{
+            gotoLastLabel();
+            addLabel();
+        }
 	;
 
 for_aparen
@@ -266,13 +286,6 @@ for_aparen
 for_fparen1
     : T_FPAREN{
         bytecodeIf();
-    }
-    ;
-
-for_cmd_composto
-    : cmd_composto{
-        gotoLastLabel();
-        addLabel();
     }
     ;
 
