@@ -230,25 +230,32 @@ cmd_repeticao
 	;
 
 cmd_for			
-	:	T_FOR T_APAREN expr T_PEV expr 	T_PEV expr 	T_FPAREN cmd_composto
-	|	T_FOR T_APAREN expr T_PEV expr 	T_PEV 		T_FPAREN cmd_composto
-	|	T_FOR T_APAREN expr T_PEV 		T_PEV expr 	T_FPAREN cmd_composto
-	|	T_FOR T_APAREN expr T_PEV		T_PEV  		T_FPAREN cmd_composto
-	|	T_FOR T_APAREN 		T_PEV expr 	T_PEV expr 	T_FPAREN cmd_composto
-	|	T_FOR T_APAREN 		T_PEV expr 	T_PEV 		T_FPAREN cmd_composto
-	|	T_FOR T_APAREN 		T_PEV 		T_PEV expr 	T_FPAREN cmd_composto
-	|	T_FOR T_APAREN 		T_PEV  		T_PEV  		T_FPAREN cmd_composto
+	:	T_FOR T_APAREN expr   for_pev1 expr 	for_pev2 expr 	T_FPAREN for_cmd_composto
+	|	T_FOR T_APAREN expr   for_pev1 expr 	for_pev2 		T_FPAREN for_cmd_composto
+	|	T_FOR T_APAREN expr   for_pev1          for_pev2 expr 	T_FPAREN for_cmd_composto
+	|	T_FOR T_APAREN expr   for_pev1          for_pev2  		T_FPAREN for_cmd_composto
+	|	T_FOR T_APAREN        for_pev1 expr     for_pev2 expr 	T_FPAREN for_cmd_composto
+	|	T_FOR T_APAREN        for_pev1 expr     for_pev2 		T_FPAREN for_cmd_composto
+	|	T_FOR T_APAREN        for_pev1          for_pev2 expr 	T_FPAREN for_cmd_composto
+	|	T_FOR T_APAREN        for_pev1          for_pev2  		T_FPAREN for_cmd_composto
 	;
 
 cmd_while		
-	:	T_WHILE for_aparen expr for_fparen cmd_composto{
-            gotoLastLabel();
-            addLabel();
-        }
+	:	T_WHILE for_aparen expr for_fparen for_cmd_composto
+	;
+
+cmd_do_while	
+	:	T_DO cmd_composto T_WHILE T_APAREN expr T_FPAREN T_PEV
 	;
 
 for_aparen
     : T_APAREN{
+        addLabel();
+    }
+    ;
+
+for_pev1
+    : T_PEV{
         addLabel();
     }
     ;
@@ -259,9 +266,18 @@ for_fparen
     }
     ;
 
-cmd_do_while	
-	:	T_DO cmd_composto T_WHILE T_APAREN expr T_FPAREN T_PEV
-	;
+for_pev2
+    : T_PEV{
+        bytecodeIf();
+    }
+    ;
+
+for_cmd_composto
+    : cmd_composto{
+        gotoLastLabel();
+        addLabel();
+    }
+    ;
 
 cmd_desvio		
 	:	desvio T_PEV
